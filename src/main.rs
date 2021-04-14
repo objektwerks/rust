@@ -1,3 +1,4 @@
 fn main() {
-    println!("Hello, Rust!");
+    let rust = "Rust!";
+    println!("Hello, {}", rust);
 }
