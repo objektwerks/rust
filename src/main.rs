@@ -5,6 +5,8 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use std::io::Read;
+
     #[test]
     fn array() {
         let mut a = [1, 2, 3];
@@ -212,5 +214,10 @@ mod tests {
 
         let ok = File::open("Cargo.toml");
         assert!( ok.is_ok() );
+
+        let mut file = ok.unwrap();
+        let mut contents = String::new();
+        file.read_to_string(&mut contents).unwrap();
+        assert!( !contents.is_empty() );
     }
 }
