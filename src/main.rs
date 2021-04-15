@@ -137,7 +137,7 @@ mod tests {
     }
 
     #[test]
-    fn loopy() {
+    fn loopbreak() {
         let mut sum = 0;
         loop {
             sum += 1;
@@ -146,5 +146,17 @@ mod tests {
             }
          }
         assert_eq!( sum, 6 );
+    }
+
+    #[test]
+    fn forcontinue() {
+        let mut sum = 0;
+        for i in 1..4 {
+            if i % 2 == 0 {
+               continue;
+            }
+            sum += i;
+         }
+        assert_eq!( sum, 4 );
     }
 }
