@@ -23,4 +23,15 @@ mod tests {
         let t = (1, 2, 3);
         assert_eq!( t.2, 3 );
     }
+
+    #[test]
+    fn hashset() {
+        use std::collections::HashSet;
+
+        let mut hs = HashSet::new();
+        hs.insert(1);
+        hs.insert(2);
+        hs.insert(3);
+        assert!( hs.contains(&3));
+    }
 }
