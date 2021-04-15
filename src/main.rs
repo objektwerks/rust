@@ -166,5 +166,10 @@ mod tests {
         s.push_str("fred ");
         s.push_str("flintstone");
         assert_eq!( s, "fred flintstone" );
+
+        let f = "barney ".to_string();
+        let l = "rebel".to_string();
+        let n = f + &l;
+        assert_eq!( n, "barney rebel" );
     }
 }
