@@ -79,4 +79,13 @@ mod tests {
         assert_eq!(f.age, 26 );
         assert!( f.gender.eq(&Gender::Female) );
     }
+
+    #[test]
+    fn generic() {
+        struct Data<T> {
+            value:T,
+         }
+        let d:Data<i32> = Data { value:3 };
+        assert_eq!( d.value, 3 );
+    }
 }
