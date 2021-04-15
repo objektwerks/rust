@@ -5,6 +5,8 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use std::error::Error;
+
     #[test]
     fn array() {
         let mut a = [1, 2, 3];
@@ -184,5 +186,16 @@ mod tests {
         let number: String = String::from("123");
         let id: String = model + &number;
         assert_eq!( id, "abc123" );
+    }
+
+    #[test]
+    fn result() {
+        use std::fs::File;
+
+        let err = File::open("crate.toml");
+        assert!( err.is_err() );
+
+        let ok = File::open("Cargo.toml");
+        assert!( ok.is_ok() );
     }
 }
