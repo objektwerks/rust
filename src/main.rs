@@ -143,6 +143,14 @@ mod tests {
             sum += i
         }
         assert_eq!( sum, 6 );
+
+        let a = [1, 2, 3];
+        let iter = a.iter();
+        sum = 0;
+        for i in iter {
+            sum += i
+        }
+        assert_eq!( sum, 6 );
     }
 
     #[test]
