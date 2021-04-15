@@ -83,7 +83,7 @@ mod tests {
     #[test]
     fn generic() {
         struct Data<T> {
-            value:T
+            value: T
          }
         let i: Data<i32> = Data { value: 3 };
         assert_eq!( i.value, 3 );
