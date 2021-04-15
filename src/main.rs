@@ -135,4 +135,16 @@ mod tests {
          }
         assert_eq!( sum, 6 );
     }
+
+    #[test]
+    fn loopy() {
+        let mut sum = 0;
+        loop {
+            sum += 1;
+            if sum == 6 {
+               break;
+            }
+         }
+        assert_eq!( sum, 6 );
+    }
 }
