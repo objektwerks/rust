@@ -49,10 +49,10 @@ mod tests {
     #[test]
     fn structure() {
         struct Person {
-            name:String,
-            age:u32
+            name: String,
+            age: u32
         }
-        let p = Person { name:String::from("Fred Flintstone"), age:27 };
+        let p = Person { name: String::from("Fred Flintstone"), age: 27 };
         assert_eq!( p.name, "Fred Flintstone" );
         assert_eq!( p.age, 27 );
     }
@@ -65,38 +65,38 @@ mod tests {
             Male, Female
         }
         struct Worker {
-            name:String,
-            age:u32,
-            gender:Gender
+            name: String,
+            age: u32,
+            gender: Gender
         }
-        let m = Worker { name:String::from("Barney Rebel"), age:26, gender:Gender::Male };
-        assert_eq!(m.name, "Barney Rebel" );
-        assert_eq!(m.age, 26 );
+        let m = Worker { name: String::from("Barney Rebel"), age: 26, gender: Gender::Male };
+        assert_eq!( m.name, "Barney Rebel" );
+        assert_eq!( m.age, 26 );
         assert!( m.gender.eq(&Gender::Male) );
 
-        let f = Worker { name:String::from("Betty Rebel"), age:26, gender:Gender::Female };
-        assert_eq!(f.name, "Betty Rebel" );
-        assert_eq!(f.age, 26 );
+        let f = Worker { name: String::from("Betty Rebel"), age: 26, gender: Gender::Female };
+        assert_eq!( f.name, "Betty Rebel" );
+        assert_eq!( f.age, 26 );
         assert!( f.gender.eq(&Gender::Female) );
     }
 
     #[test]
     fn generic() {
         struct Data<T> {
-            value:T,
+            value:T
          }
-        let i:Data<i32> = Data { value:3 };
+        let i: Data<i32> = Data { value: 3 };
         assert_eq!( i.value, 3 );
 
-        let s:Data<String> = Data { value:"3".to_string() };
+        let s: Data<String> = Data { value: "3".to_string() };
         assert_eq!( s.value, "3" );
     }
 
     #[test]
     fn traits() {
         struct Wrench {
-            model:String,
-            number:String
+            model: String,
+            number: String
         }
 
         trait Part {
@@ -105,16 +105,16 @@ mod tests {
 
         impl Part for Wrench {
             fn id(&self) -> String {
-                let m:String = String::from( &self.model );
-                let n:String = String::from( &self.number );
+                let m: String = String::from( &self.model );
+                let n: String = String::from( &self.number );
                 m + &n
             }
         }
 
-        let w = Wrench { model:String::from("abc"), number:String::from("123") };
+        let w = Wrench { model: String::from("abc"), number: String::from("123") };
         assert_eq!( w.model, "abc" );
         assert_eq!( w.number, "123" );
-        assert_eq!( w.id(), "abc123");
+        assert_eq!( w.id(), "abc123" );
     }
 
     #[test]
