@@ -117,4 +117,13 @@ mod tests {
         assert_eq!( w.number, "123" );
         assert_eq!( w.id(), "abc123");
     }
+
+    #[test]
+    fn forloop() {
+        let mut sum = 0;
+        for i in 1..4 {
+            sum += i
+        }
+        assert_eq!( sum, 6);
+    }
 }
