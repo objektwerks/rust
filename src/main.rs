@@ -45,4 +45,15 @@ mod tests {
         hm.insert(3, 3);
         assert_eq!( hm.get(&3), Some(&3) );
     }
+
+    #[test]
+    fn structure() {
+        struct Person {
+            name:String,
+            age:u32
+        }
+        let e = Person { name:String::from("Fred Flintstone"), age:27 };
+        assert_eq!( e.name, "Fred Flintstone" );
+        assert_eq!( e.age, 27 );
+    }
 }
