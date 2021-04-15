@@ -180,5 +180,10 @@ mod tests {
         let f = "flintstone".to_string();
         let wf = format!("{} {}", w, f);
         assert_eq!( wf, "wilma flintstone" );
+
+        let model: String = String::from("abc");
+        let number: String = String::from("123");
+        let id: String = model + &number;
+        assert_eq!( id, "abc123" );
     }
 }
