@@ -105,10 +105,9 @@ mod tests {
 
         impl Part for Wrench {
             fn id(&self) -> String {
-                let mut m:String = String::from( &self.model );
+                let m:String = String::from( &self.model );
                 let n:String = String::from( &self.number );
-                m.push_str(&n);
-                m
+                m + &n
             }
         }
 
