@@ -17,4 +17,10 @@ mod tests {
         let v = vec![1, 2, 3];
         assert_eq!( v[2], 3 );
     }
+
+    #[test]
+    fn tuple() {
+        let t = (1, 2, 3);
+        assert_eq!( t.2, 3 );
+    }
 }
