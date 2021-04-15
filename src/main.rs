@@ -167,13 +167,18 @@ mod tests {
         s.push_str("flintstone");
         assert_eq!( s, "fred flintstone" );
 
-        let f = "barney ".to_string();
-        let l = "rebel".to_string();
-        let n = f + &l;
-        assert_eq!( n, "barney rebel" );
+        let b = "barney ".to_string();
+        let r = "rebel".to_string();
+        let br = b + &r;
+        assert_eq!( br, "barney rebel" );
 
         let i = 3;
         let is = i.to_string();
         assert_eq!( is, "3" );
+
+        let w = "wilma".to_string();
+        let f = "flintstone".to_string();
+        let wf = format!("{} {}", w, f);
+        assert_eq!( wf, "wilma flintstone" );
     }
 }
