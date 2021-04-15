@@ -161,7 +161,7 @@ mod tests {
     }
 
     #[test]
-    fn strings() {
+    fn string() {
         let mut s = String::new();
         s.push_str("fred ");
         s.push_str("flintstone");
