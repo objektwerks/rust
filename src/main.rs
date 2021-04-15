@@ -148,16 +148,6 @@ mod tests {
     }
 
     #[test]
-    fn option() {
-        fn to_int(s: &str) -> Option<i32> {
-            let i: Option<i32> = s.parse::<i32>().ok();
-            i
-        }
-        assert_eq!( to_int("3"), Some(3) );
-        assert_eq!( to_int("c"), None );
-    }
-
-    #[test]
     fn forloop() {
         let mut sum = 0;
         for i in 1..4 {
@@ -232,6 +222,16 @@ mod tests {
         let number: String = String::from("123");
         let id: String = model + &number;
         assert_eq!( id, "abc123" );
+    }
+
+    #[test]
+    fn option() {
+        fn to_int(s: &str) -> Option<i32> {
+            let i: Option<i32> = s.parse::<i32>().ok();
+            i
+        }
+        assert_eq!( to_int("3"), Some(3) );
+        assert_eq!( to_int("c"), None );
     }
 
     #[test]
