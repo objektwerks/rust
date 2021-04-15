@@ -1,6 +1,6 @@
 fn main() {
-    let rust = "Hello, Rust!";
-    println!("{}", rust);
+    const MESSAGE: &str = "Hello, Rust!";
+    println!("{}", MESSAGE);
 }
 
 #[cfg(test)]
