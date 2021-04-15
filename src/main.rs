@@ -124,6 +124,15 @@ mod tests {
         for i in 1..4 {
             sum += i
         }
-        assert_eq!( sum, 6);
+        assert_eq!( sum, 6 );
+    }
+
+    #[test]
+    fn whileloop() {
+        let mut sum = 0;
+        while sum < 6 {
+            sum += 1
+         }
+        assert_eq!( sum, 6 );
     }
 }
