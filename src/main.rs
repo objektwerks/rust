@@ -171,5 +171,9 @@ mod tests {
         let l = "rebel".to_string();
         let n = f + &l;
         assert_eq!( n, "barney rebel" );
+
+        let i = 3;
+        let is = i.to_string();
+        assert_eq!( is, "3" );
     }
 }
