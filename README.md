@@ -7,6 +7,10 @@ Build
 1. cargo clean
 2. cargo build
 
+Test
+----
+1. cargo test
+
 Run
 ---
 1. cargo run
