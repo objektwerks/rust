@@ -52,9 +52,9 @@ mod tests {
             name:String,
             age:u32
         }
-        let e = Person { name:String::from("Fred Flintstone"), age:27 };
-        assert_eq!( e.name, "Fred Flintstone" );
-        assert_eq!( e.age, 27 );
+        let p = Person { name:String::from("Fred Flintstone"), age:27 };
+        assert_eq!( p.name, "Fred Flintstone" );
+        assert_eq!( p.age, 27 );
     }
 
     #[test]
