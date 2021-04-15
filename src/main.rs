@@ -159,4 +159,12 @@ mod tests {
          }
         assert_eq!( sum, 4 );
     }
+
+    #[test]
+    fn strings() {
+        let mut s = String::new();
+        s.push_str("fred ");
+        s.push_str("flintstone");
+        assert_eq!( s, "fred flintstone" );
+    }
 }
