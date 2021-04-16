@@ -1,6 +1,11 @@
 Rust
 ----
-Rust feature tests.
+>Rust feature tests, to include:
+1. chrono
+2. futures
+3. hyper
+4. reqwest
+5. tokio
 
 Build
 -----
