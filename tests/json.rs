@@ -21,8 +21,6 @@ mod json {
 
         let json = serde_json::to_string( &address ).unwrap();
         let addressx: Address = serde_json::from_str( &json ).unwrap();
-
-        println!( "{}", json );
         assert_eq!( address, addressx );
     }
 }
