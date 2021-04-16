@@ -7,3 +7,4 @@ edition = "2018"
 [dependencies]
 hyper = "0.14"
 reqwest = "0.11.3"
+tokio = "1.5.0"
