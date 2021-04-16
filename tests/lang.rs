@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod tests {
+mod lang {
     use std::io::Read;
 
     #[test]
