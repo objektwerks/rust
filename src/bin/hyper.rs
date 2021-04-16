@@ -16,9 +16,9 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let make_svc = make_service_fn( |_conn| {
         async { Ok::<_, Infallible>( service_fn(now) ) }
     });
-
     let addr = ([127, 0, 0, 1], 7979).into();
     let server = Server::bind(&addr).serve(make_svc);
+
     println!("Listening on http://{}", addr);
     server.await?;
     Ok(())
