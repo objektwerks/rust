@@ -233,4 +233,23 @@ mod tests {
         file.read_to_string(&mut contents).unwrap();
         assert!( !contents.is_empty() );
     }
+
+    #[test]
+    fn recursion() {
+        fn factorial(n: u32, acc: u32) -> u32 {
+            if n == 1 {
+                return acc
+            } else {
+                factorial(n - 1, acc * n)
+            }
+        }
+        assert_eq!( factorial(9, 1), 362880)
+    }
+
+    /*
+      tailrec fun factorial(n: Int, acc: Int = 1): Int =
+      if (n == 1) acc
+      else factorial(n - 1, acc * n)
+      assert( factorial(9) == 362880 )
+     */
 }
