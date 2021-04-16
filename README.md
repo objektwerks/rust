@@ -5,7 +5,8 @@ Rust
 2. futures
 3. hyper
 4. reqwest
-5. tokio
+5. serde, serde_json
+6. tokio
 
 Build
 -----
