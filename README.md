@@ -10,7 +10,7 @@ Rust
 
 Build
 -----
-1. cargo clean
+1. cargo clean ( optional )
 2. cargo build
 
 Test
@@ -25,8 +25,3 @@ Release
 -------
 1. cargo build --release ( see target/release/rust executable file )
 2. ./target/release/rust
-
-Executable
-----------
-1. rustc src/main.rs ( see ./main executable file )
-2. ./main
