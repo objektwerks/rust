@@ -19,7 +19,11 @@ Test
 
 Run
 ---
-1. cargo run
+>Run one of these apps:
+1. cargo run --bin hyper
+2. cargo run --bin hyperx
+3. cargo run --bin main
+4. cargo run --bin reqwest
 
 Release
 -------
