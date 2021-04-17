@@ -27,5 +27,5 @@ Run
 
 Release
 -------
-1. cargo build --release ( see target/release directory for executables )
-2. ./target/release/[ executable ]
+1. cargo [ clean ] build --release ( see target/release directory for executables )
+2. ./target/release/[ executable ] ( to run )
