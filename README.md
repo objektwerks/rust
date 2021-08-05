@@ -8,6 +8,10 @@ Rust
 5. serde, serde_json
 6. tokio
 
+Dependencies
+------------
+1. See: crates.io
+
 Build
 -----
 1. cargo clean ( optional )
