@@ -1,4 +1,5 @@
 use std::error::Error;
+
 use reqwest::blocking::*;
 
 fn main() -> Result<(), Box<dyn Error>> {
