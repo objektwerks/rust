@@ -23,9 +23,8 @@ Test
 
 Run
 ---
->Run one of these apps:
-1. cargo run --bin hyper
-2. cargo run --bin hyperx
+1. cargo run --bin hyper  ( curl http://localhost:7878/now )
+2. cargo run --bin hyperx ( curl http://localhost:7979/now )
 3. cargo run --bin main
 4. cargo run --bin reqwest
 
