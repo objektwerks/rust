@@ -9,6 +9,7 @@ Rust
 6. rocket
 7. serde, serde_json
 8. tokio
+>See: crates.io for these and more dependencies.
 
 Install
 -------
@@ -16,10 +17,6 @@ Install
 2. rustup --version
 3. rustc --version
 4. cargo --version
-
-Dependencies
-------------
-1. See: crates.io
 
 Update
 ------
