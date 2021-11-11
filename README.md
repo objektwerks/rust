@@ -22,6 +22,12 @@ Update
 ------
 1. rustup update && cargo update
 
+VSCode
+------
+1. rust-analyzer  ( or Rust for VSCODE )
+2. crates
+3. Even Better TOML
+
 Build
 -----
 1. cargo clean ( optional )
