@@ -1,12 +1,13 @@
 Rust
 ----
 >Rust feature tests, to include:
-1. chrono
-2. futures
-3. hyper
-4. reqwest
-5. serde, serde_json
-6. tokio
+1. actix-web
+2. chrono
+3. futures
+4. hyper
+5. reqwest
+6. serde, serde_json
+7. tokio
 
 Dependencies
 ------------
