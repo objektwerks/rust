@@ -1,6 +1,6 @@
-use std::error::Error;
-
 use reqwest::blocking::*;
+
+use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let response = get("http://api.icndb.com/jokes/random/")?.text()?;
