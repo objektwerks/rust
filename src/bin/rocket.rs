@@ -1,18 +1,20 @@
-#[macro_use]
-extern crate rocket;
+#[macro_use] extern crate rocket;
 
 use chrono::Utc;
 
 #[get("/now")]
-fn now() -> &'static str {
-    Utc::now().to_string().as_str()
+fn now() -> String {
+    Utc::now().to_string()
 }
 
 /** To test server: curl http://localhost:8080/ */
 #[rocket::main]
 async fn main() {
-    rocket::build()
+    if let Err(e) = rocket::build()
         .mount("/", routes![now])
         .launch()
-        .await
+        .await {
+            println!("Rocket failed launch!");
+            drop(e);
+        };
 }
