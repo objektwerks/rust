@@ -7,8 +7,8 @@ async fn now() -> impl Responder {
     HttpResponse::Ok().body(Utc::now().to_string())
 }
 
-#[actix_web::main]
 /** To test server: curl http://localhost:7777/ */
+#[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| App::new().service(now))
         .bind("127.0.0.1:7777")?
