@@ -14,6 +14,10 @@ Dependencies
 ------------
 1. See: crates.io
 
+Update
+------
+1. rustup update && cargo update
+
 Build
 -----
 1. cargo clean ( optional )
