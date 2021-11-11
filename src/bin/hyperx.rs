@@ -16,8 +16,8 @@ async fn now(req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
     }
 }
 
-#[tokio::main]
 /** To test server: curl http://localhost:7979/now */
+#[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let addr = ([127, 0, 0, 1], 7979).into();
     let service = make_service_fn(|_| async { Ok::<_, hyper::Error>(service_fn(now)) });
