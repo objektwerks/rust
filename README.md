@@ -10,6 +10,13 @@ Rust
 7. serde, serde_json
 8. tokio
 
+Install
+-------
+1. curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+2. rustup --version
+3. rustc --version
+4. cargo --version
+
 Dependencies
 ------------
 1. See: crates.io
