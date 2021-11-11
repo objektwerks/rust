@@ -21,14 +21,14 @@ Test
 ----
 1. cargo test
 
-Run
----
-1. cargo run --bin hyper  ( curl http://localhost:7878/now )
-2. cargo run --bin hyperx ( curl http://localhost:7979/now )
-3. cargo run --bin main
-4. cargo run --bin reqwest
-
 Release
 -------
 1. cargo [ clean ] build --release ( see target/release directory for executables )
-2. ./target/release/[ executable ] ( to run )
+
+Run
+---
+1. cargo run --bin actix  ( curl http://localhost:7777/now )
+2. cargo run --bin hyper  ( curl http://localhost:7878/now )
+3. cargo run --bin hyperx ( curl http://localhost:7979/now )
+4. cargo run --bin main
+5. cargo run --bin reqwest
