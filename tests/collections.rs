@@ -1,7 +1,5 @@
 #[cfg(test)]
 mod collections {
-    use std::io::Read;
-
     #[test]
     fn array() {
         let mut a = [1, 2, 3];
