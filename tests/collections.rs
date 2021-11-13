@@ -23,6 +23,14 @@ mod collections {
     }
 
     #[test]
+    fn linkedlist() {
+        use std::collections::LinkedList;
+
+        let ll = LinkedList::from( [1, 2, 3] );
+        assert_eq!( ll.len(), 3 );
+    }
+
+    #[test]
     fn range() {
         let r = 1..4;
         assert_eq!( r.len(), 3 );
