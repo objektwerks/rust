@@ -18,8 +18,8 @@ mod collections {
 
     #[test]
     fn range() {
-        let r = 1..4;
-        assert_eq!( r.into_iter().map(|x| x * x).sum::<i32>(), 14 )
+        assert_eq!( (1..4).into_iter().fold(0, |x, y| x + y), 6 );
+        assert_eq!( (1..4).into_iter().map(|x| x * x).sum::<i32>(), 14 )
     }
 
     #[test]
