@@ -27,6 +27,7 @@ mod collections {
         hs.insert(2);
         hs.insert(3);
         assert!(hs.contains(&3));
+        assert_eq!( hs.iter().fold(0, |x, y| x + y), 6 );
     }
 
     #[test]
