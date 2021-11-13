@@ -39,8 +39,8 @@ mod collections {
         
         let hm = HashMap::from([(1, 1), (2, 2), (3, 3)]);
         assert_eq!( hm.get(&3), Some(&3) );
-        assert_eq!( hm.clone().into_values().fold(0, |x, y| x + y), 6 );
-        assert_eq!( hm.clone().into_values().map(|x| x * x).sum::<i32>(), 14 ) ;
-        assert_eq!( hm.clone().into_values().filter(|x| x % 2 == 0).sum::<i32>(), 2 );
+        assert_eq!( hm.clone().values().fold(0, |x, y| x + y), 6 );
+        assert_eq!( hm.clone().values().map(|x| x * x).sum::<i32>(), 14 ) ;
+        assert_eq!( hm.clone().values().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
     }
 }
