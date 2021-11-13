@@ -30,6 +30,7 @@ mod collections {
         hs.insert(3);
         assert!(hs.contains(&3));
         assert_eq!( hs.iter().fold(0, |x, y| x + y), 6 );
+        assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14)
     }
 
     #[test]
