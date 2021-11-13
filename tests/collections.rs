@@ -17,6 +17,12 @@ mod collections {
     }
 
     #[test]
+    fn range() {
+        let r = 1..4;
+        assert_eq!( r.into_iter().map(|x| x * x).sum::<i32>(), 14 )
+    }
+
+    #[test]
     fn tuple() {
         let t:(i32, i32, i32) = (1, 2, 3);
         assert_eq!( t.0 + t.1 + t.2, 6 );
