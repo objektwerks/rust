@@ -4,13 +4,13 @@ mod collections {
     fn iterator() {
         let a = [1, 2, 3];
 
-        assert_eq!( a.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
+        assert_eq!( a.iter().filter(|&x| x % 2 == 0).next(), Some(&2) );
         assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( a.iter().last(), Some(&3) );
         assert_eq!( a.iter().min(), Some(&1) );
         assert_eq!( a.iter().max(), Some(&3) );
-        assert_eq!( a.iter().map(|x| x * x).sum::<i32>(), 14 );
-        assert!( a.iter().take(1).len() == 1 );
+        assert_eq!( a.iter().map(|x| x * x).last(), Some(9) );
+        assert_eq!( a.iter().take(1).next(), Some(&1) );
     }
 
     #[test]
