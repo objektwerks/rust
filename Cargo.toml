@@ -2,7 +2,7 @@
 name = "rust"
 version = "0.1.0"
 authors = ["objektwerks <objektwerks@runbox.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 actix-web = "3"
