@@ -18,8 +18,9 @@ mod collections {
 
     #[test]
     fn range() {
-        assert_eq!( (1..4).into_iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( (1..4).into_iter().map(|x| x * x).sum::<i32>(), 14 )
+        assert_eq!( (1..4).fold(0, |x, y| x + y), 6 );
+        assert_eq!( (1..4).map(|x| x * x).sum::<i32>(), 14 );
+        assert_eq!( (1..4).filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
     }
 
     #[test]
