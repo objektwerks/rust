@@ -1,17 +1,9 @@
 #[cfg(test)]
 mod collections {
     #[test]
-    fn array() {
-        let a = [1, 2, 3];
-        assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( a.iter().map(|x| x * x).sum::<i32>(), 14 );
-        assert_eq!( a.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
-        assert!( a.iter().take(1).len() == 1 );
-    }
-
-    #[test]
-    fn vector() {
+    fn iterartor() {
         let v = vec![1, 2, 3];
+
         assert_eq!( v.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( v.iter().map(|x| x * x).sum::<i32>(), 14 );
         assert_eq!( v.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
@@ -19,11 +11,21 @@ mod collections {
     }
 
     #[test]
+    fn array() {
+        let a = [1, 2, 3];
+        assert_eq!( a.len(), 3 );
+    }
+
+    #[test]
+    fn vector() {
+        let v = vec![1, 2, 3];
+        assert_eq!( v.len(), 3 );
+    }
+
+    #[test]
     fn range() {
-        assert_eq!( (1..4).fold(0, |x, y| x + y), 6 );
-        assert_eq!( (1..4).map(|x| x * x).sum::<i32>(), 14 );
-        assert_eq!( (1..4).filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
-        assert!( (1..4).take(1).len() == 1 );
+        let r = 1..4;
+        assert_eq!( r.len(), 3 );
     }
 
     #[test]
@@ -37,11 +39,7 @@ mod collections {
         use std::collections::HashSet;
 
         let hs = HashSet::from([1, 2, 3]);
-        assert!(hs.contains(&3));
-        assert_eq!( hs.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14 );
-        assert_eq!( hs.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
-        assert!( hs.iter().take(1).len() == 1 );
+        assert!( hs.contains(&3) );
     }
 
     #[test]
@@ -50,13 +48,5 @@ mod collections {
         
         let hm = HashMap::from([(1, 1), (2, 2), (3, 3)]);
         assert_eq!( hm.get(&3), Some(&3) );
-        assert_eq!( hm.keys().fold(0, |x, y| x + y), 6 );
-        assert_eq!( hm.values().fold(0, |x, y| x + y), 6 );
-        assert_eq!( hm.keys().map(|x| x * x).sum::<i32>(), 14 ) ;
-        assert_eq!( hm.values().map(|x| x * x).sum::<i32>(), 14 ) ;
-        assert_eq!( hm.keys().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
-        assert_eq!( hm.values().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
-        assert!( hm.keys().take(1).len() == 1 );
-        assert!( hm.values().take(1).len() == 1 );
     }
 }
