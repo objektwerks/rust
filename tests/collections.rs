@@ -42,6 +42,7 @@ mod collections {
         hm.insert(2, 2);
         hm.insert(3, 3);
         assert_eq!(hm.get(&3), Some(&3));
-        assert_eq!( hm.into_values().fold(0, |x, y| x + y), 6 );
+        assert_eq!( hm.clone().into_values().fold(0, |x, y| x + y), 6 );
+        assert_eq!( hm.clone().into_values().map(|x| x * x).sum::<i32>(), 14) ;
     }
 }
