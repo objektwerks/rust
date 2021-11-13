@@ -14,8 +14,8 @@ mod collections {
 
     #[test]
     fn tuple() {
-        let t = (1, 2, 3);
-        assert_eq!(t.2, 3);
+        let t:(i32, i32, i32) = (1, 2, 3);
+        assert_eq!(t.0 + t.1 + t.2, 6);
     }
 
     #[test]
