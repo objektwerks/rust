@@ -6,6 +6,7 @@ mod collections {
         assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( a.iter().map(|x| x * x).sum::<i32>(), 14 );
         assert_eq!( a.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
+        assert!( a.iter().take(1).len() == 1 );
     }
 
     #[test]
