@@ -2,9 +2,8 @@
 mod collections {
     #[test]
     fn array() {
-        let mut a = [1, 2, 3];
-        a.reverse();
-        assert_eq!(a, [3, 2, 1]);
+        let a = [1, 2, 3];
+        assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
     }
 
     #[test]
