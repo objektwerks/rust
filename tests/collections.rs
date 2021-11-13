@@ -4,9 +4,9 @@ mod collections {
     fn iterartor() {
         let v = vec![1, 2, 3];
 
+        assert_eq!( v.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
         assert_eq!( v.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( v.iter().map(|x| x * x).sum::<i32>(), 14 );
-        assert_eq!( v.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
         assert!( v.iter().take(1).len() == 1 );
     }
 
@@ -27,7 +27,8 @@ mod collections {
         use std::collections::LinkedList;
 
         let ll = LinkedList::from( [1, 2, 3] );
-        assert_eq!( ll.len(), 3 );
+        assert_eq!( ll.front(), Some(&1) );
+        assert_eq!( ll.back(), Some(&3) );
     }
 
     #[test]
