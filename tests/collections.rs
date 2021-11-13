@@ -36,11 +36,8 @@ mod collections {
     #[test]
     fn hashmap() {
         use std::collections::HashMap;
-
-        let mut hm = HashMap::new();
-        hm.insert(1, 1);
-        hm.insert(2, 2);
-        hm.insert(3, 3);
+        
+        let hm = HashMap::from([(1, 1), (2, 2), (3, 3)]);
         assert_eq!( hm.get(&3), Some(&3) );
         assert_eq!( hm.clone().into_values().fold(0, |x, y| x + y), 6 );
         assert_eq!( hm.clone().into_values().map(|x| x * x).sum::<i32>(), 14 ) ;
