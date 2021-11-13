@@ -26,10 +26,7 @@ mod collections {
     fn hashset() {
         use std::collections::HashSet;
 
-        let mut hs = HashSet::new();
-        hs.insert(1);
-        hs.insert(2);
-        hs.insert(3);
+        let hs = HashSet::from([1, 2, 3]);
         assert!(hs.contains(&3));
         assert_eq!( hs.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14 );
