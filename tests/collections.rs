@@ -32,7 +32,8 @@ mod collections {
         hs.insert(3);
         assert!(hs.contains(&3));
         assert_eq!( hs.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14 )
+        assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14 );
+        assert_eq!( hs.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2);
     }
 
     #[test]
