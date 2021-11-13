@@ -56,5 +56,7 @@ mod collections {
         assert_eq!( hm.values().map(|x| x * x).sum::<i32>(), 14 ) ;
         assert_eq!( hm.keys().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
         assert_eq!( hm.values().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
+        assert!( hm.keys().take(1).len() == 1 );
+        assert!( hm.values().take(1).len() == 1 );
     }
 }
