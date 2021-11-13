@@ -4,14 +4,14 @@ mod collections {
     fn array() {
         let a = [1, 2, 3];
         assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( a.iter().map(|x| x * x).sum::<i32>(), 14)
+        assert_eq!( a.iter().map(|x| x * x).sum::<i32>(), 14 )
     }
 
     #[test]
     fn vector() {
         let v = vec![1, 2, 3];
         assert_eq!( v.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( v.iter().map(|x| x * x).sum::<i32>(), 14)
+        assert_eq!( v.iter().map(|x| x * x).sum::<i32>(), 14 )
     }
 
     #[test]
@@ -30,7 +30,7 @@ mod collections {
         hs.insert(3);
         assert!(hs.contains(&3));
         assert_eq!( hs.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14)
+        assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14 )
     }
 
     #[test]
@@ -41,7 +41,7 @@ mod collections {
         hm.insert(1, 1);
         hm.insert(2, 2);
         hm.insert(3, 3);
-        assert_eq!(hm.get(&3), Some(&3));
+        assert_eq!( hm.get(&3), Some(&3) );
         assert_eq!( hm.clone().into_values().fold(0, |x, y| x + y), 6 );
         assert_eq!( hm.clone().into_values().map(|x| x * x).sum::<i32>(), 14) ;
     }
