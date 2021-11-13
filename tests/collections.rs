@@ -13,13 +13,13 @@ mod collections {
         let v = vec![1, 2, 3];
         assert_eq!( v.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( v.iter().map(|x| x * x).sum::<i32>(), 14 );
-        assert_eq!( v.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2);
+        assert_eq!( v.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
     }
 
     #[test]
     fn tuple() {
         let t:(i32, i32, i32) = (1, 2, 3);
-        assert_eq!(t.0 + t.1 + t.2, 6);
+        assert_eq!( t.0 + t.1 + t.2, 6 );
     }
 
     #[test]
@@ -33,7 +33,7 @@ mod collections {
         assert!(hs.contains(&3));
         assert_eq!( hs.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( hs.iter().map(|x| x * x).sum::<i32>(), 14 );
-        assert_eq!( hs.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2);
+        assert_eq!( hs.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
     }
 
     #[test]
@@ -46,6 +46,7 @@ mod collections {
         hm.insert(3, 3);
         assert_eq!( hm.get(&3), Some(&3) );
         assert_eq!( hm.clone().into_values().fold(0, |x, y| x + y), 6 );
-        assert_eq!( hm.clone().into_values().map(|x| x * x).sum::<i32>(), 14) ;
+        assert_eq!( hm.clone().into_values().map(|x| x * x).sum::<i32>(), 14 ) ;
+        assert_eq!( hm.clone().into_values().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
     }
 }
