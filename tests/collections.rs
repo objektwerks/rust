@@ -5,14 +5,15 @@ mod collections {
         let a = [1, 2, 3];
         assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( a.iter().map(|x| x * x).sum::<i32>(), 14 );
-        assert_eq!( a.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2);
+        assert_eq!( a.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2 );
     }
 
     #[test]
     fn vector() {
         let v = vec![1, 2, 3];
         assert_eq!( v.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( v.iter().map(|x| x * x).sum::<i32>(), 14 )
+        assert_eq!( v.iter().map(|x| x * x).sum::<i32>(), 14 );
+        assert_eq!( v.iter().filter(|&x| x % 2 == 0).sum::<i32>(), 2);
     }
 
     #[test]
