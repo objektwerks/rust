@@ -30,6 +30,14 @@ mod collections {
     }
 
     #[test]
+    fn vecdeque() {
+        use std::collections::VecDeque;
+
+        let vd = VecDeque::from( [1, 2, 3] );
+        assert_eq!( vd.get(0).unwrap_or(&0), &1 );
+    }
+
+    #[test]
     fn linkedlist() {
         use std::collections::LinkedList;
 
