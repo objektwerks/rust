@@ -15,7 +15,6 @@ mod collections {
 
         assert_eq!( a.iter().filter(|&x| x % 2 == 0).next().unwrap_or(&0), &2 );
         assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
-        assert_eq!( a.into_iter().reduce(|x, y| x + y).unwrap_or(0), 6 );
 
         assert_eq!( a.iter().last().unwrap_or(&0), &3 );
         assert_eq!( a.iter().min().unwrap_or(&0), &1 );
@@ -30,6 +29,8 @@ mod collections {
         assert_eq!( b.iter().map(|s| s.parse::<i32>().ok()).flatten().sum::<i32>(), 6 );
         assert_eq!( b.iter().flat_map(|s| s.parse::<i32>().ok()).sum::<i32>(), 6 );
         assert_eq!( b.iter().chain(c.iter()).flat_map(|s| s.parse::<i32>().ok()).sum::<i32>(), 21 );
+
+        assert_eq!( a.into_iter().reduce(|x, y| x + y).unwrap_or(0), 6 );
     }
 
     #[test]
