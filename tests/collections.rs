@@ -65,4 +65,12 @@ mod collections {
         let hm = HashMap::from([(1, 1), (2, 2), (3, 3)]);
         assert_eq!( hm.get(&3), Some(&3) );
     }
+
+    #[test]
+    fn btreemap() {
+        use std::collections::BTreeMap;
+
+        let btm = BTreeMap::from([(1, 1), (2, 2), (3, 3)]);
+        assert_eq!( btm.get(&3), Some(&3) );
+    }
 }
