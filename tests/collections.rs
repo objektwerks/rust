@@ -89,4 +89,12 @@ mod collections {
         let btm = BTreeMap::from([(1, 1), (2, 2), (3, 3)]);
         assert_eq!( btm.get(&3), Some(&3) );
     }
+
+    #[test]
+    fn binaryheap() {
+        use std::collections::BinaryHeap;
+
+        let bh = BinaryHeap::from( [1, 2, 3] );
+        assert_eq!( bh.peek().unwrap_or(&0), &1 );
+    }
 }
