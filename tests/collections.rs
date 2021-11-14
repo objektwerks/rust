@@ -14,6 +14,7 @@ mod collections {
 
         let b = ["1", "a", "2", "3"];
 
+        assert_eq!( b.iter().map(|s| s.parse::<i32>().ok()).flatten().sum::<i32>(), 6 );
         assert_eq!( b.iter().flat_map(|s| s.parse::<i32>().ok()).sum::<i32>(), 6 );
     }
 
