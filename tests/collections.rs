@@ -11,6 +11,10 @@ mod collections {
         assert_eq!( a.iter().max().unwrap_or(&0), &3 );
         assert_eq!( a.iter().map(|x| x * x).last().unwrap_or(0), 9 );
         assert_eq!( a.iter().take(1).next().unwrap_or(&0), &1 );
+
+        let b = ["1", "a", "2", "3"];
+
+        assert_eq!( b.iter().flat_map(|s| s.parse::<i32>().ok()).sum::<i32>(), 6 );
     }
 
     #[test]
