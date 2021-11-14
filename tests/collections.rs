@@ -32,6 +32,8 @@ mod collections {
 
         assert_eq!( [1, 2, 3].iter().zip([4, 5, 6]).map(|(x, y)| x + y).sum::<i32>(), 21 );
         assert_eq!( a.into_iter().reduce(|x, y| x + y).unwrap_or(0), 6 );
+
+        assert_eq!( a.to_vec(), vec![1, 2, 3] )
     }
 
     #[test]
