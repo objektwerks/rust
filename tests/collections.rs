@@ -7,16 +7,21 @@ mod collections {
         a.iter().for_each(|x| assert!( x > &0 ));
         assert_eq!( a.len(), 3 );
         assert_eq!( a.iter().count(), 3 );
+
         assert_eq!([1, 2, 3].iter().eq([1, 2, 3].iter()), true);
         assert_eq!([1].iter().ne([1, 2, 3].iter()), true);
         assert_eq!([1].iter().lt([1, 2, 3].iter()), true);
+        assert_eq!([1, 2, 3].iter().gt([1].iter()), true);
+
         assert_eq!( a.iter().filter(|&x| x % 2 == 0).next().unwrap_or(&0), &2 );
         assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
+
         assert_eq!( a.iter().last().unwrap_or(&0), &3 );
         assert_eq!( a.iter().min().unwrap_or(&0), &1 );
         assert_eq!( a.iter().max().unwrap_or(&0), &3 );
-        assert_eq!( a.iter().map(|x| x * x).last().unwrap_or(0), 9 );
         assert_eq!( a.iter().take(1).next().unwrap_or(&0), &1 );
+
+        assert_eq!( a.iter().map(|x| x * x).last().unwrap_or(0), 9 );
 
         let b = ["1", "a", "2", "3"];
         let c = ["4", "b", "5", "6"];
