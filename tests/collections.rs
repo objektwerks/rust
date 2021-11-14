@@ -8,7 +8,8 @@ mod collections {
         assert_eq!( a.len(), 3 );
         assert_eq!( a.iter().count(), 3 );
         assert_eq!([1, 2, 3].iter().eq([1, 2, 3].iter()), true);
-        assert_eq!([1, 2, 3].iter().ne([1, 2, 3, 4, 5, 6].iter()), true);
+        assert_eq!([1].iter().ne([1, 2, 3].iter()), true);
+        assert_eq!([1].iter().lt([1, 2, 3].iter()), true);
         assert_eq!( a.iter().filter(|&x| x % 2 == 0).next().unwrap_or(&0), &2 );
         assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
         assert_eq!( a.iter().last().unwrap_or(&0), &3 );
