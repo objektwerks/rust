@@ -59,6 +59,14 @@ mod collections {
     }
 
     #[test]
+    fn btreeset() {
+        use std::collections::BTreeSet;
+
+        let hs = BTreeSet::from([1, 2, 3]);
+        assert!( hs.contains(&3) );
+    }
+
+    #[test]
     fn hashmap() {
         use std::collections::HashMap;
         
