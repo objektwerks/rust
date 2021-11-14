@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod collections {
     #[test]
-    fn iterator() {
+    fn array() {
         let a = [1, 2, 3];
 
         a.iter().for_each(|x| assert!( x > &0 ));
@@ -105,6 +105,6 @@ mod collections {
         use std::collections::BinaryHeap;
 
         let bh = BinaryHeap::from( [1, 2, 3] );
-        assert_eq!( bh.peek().unwrap_or(&0), &1 );
+        assert_eq!( bh.peek().unwrap_or(&0), &3 );
     }
 }
