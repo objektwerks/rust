@@ -24,12 +24,6 @@ mod collections {
     }
 
     #[test]
-    fn array() {
-        let a = [1, 2, 3];
-        assert_eq!( a.len(), 3 );
-    }
-
-    #[test]
     fn vector() {
         let v = vec![1, 2, 3];
         assert_eq!( v.len(), 3 );
