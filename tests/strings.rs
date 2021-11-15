@@ -2,28 +2,23 @@
 mod strings {
     #[test]
     fn string() {
-        let mut s = String::new();
-        s.push_str("fred ");
-        s.push_str("flintstone");
-        assert_eq!(s, "fred flintstone");
-
-        let b = "barney ".to_string();
-        let r = "rebel".to_string();
-        let br = b + &r;
-        assert_eq!(br, "barney rebel");
-
-        let i = 3;
-        let is = i.to_string();
-        assert_eq!(is, "3");
+        let mut ff = String::new();
+        ff.push_str("fred ");
+        ff.push_str("flintstone");
+        assert_eq!(ff, "fred flintstone" );
 
         let w = "wilma".to_string();
         let f = "flintstone".to_string();
         let wf = format!("{} {}", w, f);
-        assert_eq!(wf, "wilma flintstone");
+        assert_eq!( wf, "wilma flintstone" );
 
-        let model: String = String::from("abc");
-        let number: String = String::from("123");
-        let id: String = model + &number;
-        assert_eq!(id, "abc123");
+        let is = 3.to_string();
+        assert_eq!( is, "3" );
+    }
+
+    #[test]
+    fn str() {
+        let model = "abc".to_owned() + "123";
+        assert_eq!(model, "abc123" );
     }
 }
