@@ -12,6 +12,15 @@ mod options {
         assert_eq!( to_int("3").unwrap_or(0), 3 );
         assert_eq!( to_int("c").unwrap_or(0), 0 );
 
+        match to_int("3") {
+            Some(i) => assert_eq!(i, 3),
+            None => panic!("Should be Some(3)"),
+        }
+        match to_int("c") {
+            Some(_) => panic!("Should be None"),
+            None => assert!(true),
+        }
+
         let ns = ["1", "a", "2", "3"];
 
         assert_eq!( ns.iter().map(|s| to_int(s)).flatten().sum::<i32>(), 6 );
