@@ -8,7 +8,7 @@ use hyper::{Body, Request, Response, Server};
 use std::convert::Infallible;
 
 async fn now(_: Request<Body>) -> Result<Response<Body>, Infallible> {
-    Ok(Response::new(Body::from(Utc::now().to_string())))
+    Ok(Response::new(Body::from(format!("Now: {}", Utc::now().to_string()))))
 }
 
 
