@@ -4,7 +4,7 @@ use chrono::Utc;
 
 #[get("/now")]
 fn now() -> String {
-    Utc::now().to_string()
+    format!("Now: {}", Utc::now().to_string())
 }
 
 /** To test server: curl http://localhost:8080/ */
