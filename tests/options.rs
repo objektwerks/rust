@@ -5,9 +5,12 @@ mod options {
         fn to_int(s: &str) -> Option<i32> {
             return s.parse::<i32>().ok();
         }
-        
-        assert_eq!(to_int("3").unwrap_or(0), 3);
-        assert_eq!(to_int("c").unwrap_or(0), 0);
+
+        assert!( to_int("3").is_some() );
+        assert!( to_int("c").is_none() );
+
+        assert_eq!( to_int("3").unwrap_or(0), 3 );
+        assert_eq!( to_int("c").unwrap_or(0), 0 );
 
         let ns = ["1", "a", "2", "3"];
 
