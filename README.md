@@ -48,5 +48,6 @@ Run
 2. cargo run --bin hyper     ( curl http://localhost:7878/now )
 3. cargo run --bin hyperx    ( curl http://localhost:7979/now )
 4. cargo run --bin rocket    ( curl http://localhost:8080/now )
-5. cargo run --bin reqwest
-6. cargo run --bin main
+5. cargo run --bin tide      ( curl http://localhost:8081/now )
+6. cargo run --bin reqwest
+7. cargo run --bin main
