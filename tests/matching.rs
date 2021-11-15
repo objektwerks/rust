@@ -32,13 +32,13 @@ mod matching {
             }
         }
 
-        let px = &Point::new(1, 1);
+        let px = Point::new(1, 1);
         assert_eq!(px.match_on_point(), "match on x (1, 1)" );
 
-        let py = &Point::new(2, 2);
+        let py = Point::new(2, 2);
         assert_eq!(py.match_on_point(), "match on y (2, 2)" );
 
-        let pxy = &Point::new(3, 3);
+        let pxy = Point::new(3, 3);
         assert_eq!(pxy.match_on_point(), "default: (3, 3)" );
     }
 }
