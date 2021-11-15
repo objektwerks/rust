@@ -27,6 +27,7 @@ mod matching {
                 }
             }
         }
+
         let px = &Point { x: 1, y: 1 };
         assert_eq!(px.match_on_point(), "match on x (1, 1)" );
 

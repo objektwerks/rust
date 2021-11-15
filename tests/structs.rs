@@ -12,6 +12,7 @@ mod structs {
                 return self.first.to_string() + " " + &self.last.to_string();
             }
         }
+
         let p = Person { first: "Fred".to_string(), last: "Flintstone".to_string(), age: 27 };
         assert_eq!( p.first, "Fred" );
         assert_eq!( p.last, "Flintstone" );
