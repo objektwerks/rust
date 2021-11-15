@@ -5,10 +5,11 @@ Rust
 2. chrono
 3. futures
 4. hyper
-5. reqwest
-6. rocket
-7. serde, serde_json
-8. tokio
+5. rocket
+6. tide
+7. reqwest
+8. serde, serde_json
+9. tokio
 >See: crates.io for these and more dependencies.
 
 Install
