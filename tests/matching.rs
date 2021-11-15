@@ -23,7 +23,7 @@ mod matching {
                 match p {
                     Point { x: 1, y: _ } => format!("match on x ({}, {})", p.x, p.y),
                     Point { x: _, y: 2 } => format!("match on y ({}, {})", p.x, p.y),
-                    Point { x: _, y: _ }       => format!("default: ({}, {})", p.x, p.y),
+                    Point { x: _, y: _ } => format!("default: ({}, {})", p.x, p.y),
                 }
             }
         }
