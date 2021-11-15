@@ -5,7 +5,7 @@ mod strings {
         let mut ff = String::new();
         ff.push_str("fred ");
         ff.push_str("flintstone");
-        assert_eq!(ff, "fred flintstone" );
+        assert_eq!( ff, "fred flintstone" );
 
         let w = "wilma".to_string();
         let f = "flintstone".to_string();
@@ -19,6 +19,6 @@ mod strings {
     #[test]
     fn str() {
         let model = "abc".to_owned() + "123";
-        assert_eq!(model, "abc123" );
+        assert_eq!( model, "abc123" );
     }
 }
