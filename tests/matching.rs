@@ -8,6 +8,7 @@ mod matching {
                 n => n * n,
             }
         }
+
         assert_eq!( square(1), 1 );
         assert_eq!( square(4), 16 );
     }
