@@ -5,7 +5,7 @@ mod matching {
         fn square(i: i32) -> i32 {
             match i {
                 1 => 1 * 1,
-                @n => n * n,
+                n => n * n,
             }
         }
         assert_eq!( square(1), 1 );
