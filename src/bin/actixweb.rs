@@ -6,7 +6,7 @@ use std::io;
 
 #[get("/now")]
 async fn now() -> impl Responder {
-    HttpResponse::Ok().body(Utc::now().to_string())
+    HttpResponse::Ok().body(format!("Now: {}", Utc::now().to_string()))
 }
 
 /** To test server: curl http://localhost:7777/ */
