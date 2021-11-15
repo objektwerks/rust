@@ -8,12 +8,15 @@ mod structs {
             age: u32,
         }
         impl Person {
+            fn new(first: String, last: String, age: u32) -> Person {
+                Person { first, last, age }
+            }
             fn name(&self) -> String {
                 return self.first.to_string() + " " + &self.last.to_string();
             }
         }
 
-        let p = Person { first: "Fred".to_string(), last: "Flintstone".to_string(), age: 27 };
+        let p = Person::new("Fred".to_string(), "Flintstone".to_string(), 27);
         assert_eq!( p.first, "Fred" );
         assert_eq!( p.last, "Flintstone" );
         assert_eq!( p.age, 27 );
