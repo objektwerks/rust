@@ -39,11 +39,11 @@ mod results {
 
         match read_file("Crate.toml") {
             Ok(contents) => panic!("Opened nonexistent Crate.toml: {}", contents),
-            Err(failure) => assert!(!failure.to_string().is_empty()),
+            Err(err) => assert!(!err.to_string().is_empty()),
         }
         match read_file("Cargo.toml") {
             Ok(contents) => assert!(!contents.is_empty()),
-            Err(failure) => panic!("Failed to open Cargo.toml: {}", failure),
+            Err(err) => panic!("Failed to open Cargo.toml: {}", err),
         }
     }
 }
