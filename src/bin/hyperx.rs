@@ -7,7 +7,7 @@ use hyper::{Body, Method, Request, Response, Server, StatusCode};
 
 async fn now(req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
     match (req.method(), req.uri().path()) {
-        (&Method::GET, "/now") => Ok(Response::new(Body::from(Utc::now().to_string()))),
+        (&Method::GET, "/now") => Ok(Response::new(Body::from(format!("Now: {}", Utc::now().to_string())))),
         _ => {
             let mut not_found = Response::default();
             *not_found.status_mut() = StatusCode::NOT_FOUND;
