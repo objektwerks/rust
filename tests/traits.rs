@@ -25,6 +25,6 @@ mod traits {
         let w = Wrench::new(String::from("abc"), String::from("123"));
         assert_eq!(w.model, "abc");
         assert_eq!(w.number, "123");
-        assert_eq!(w.id(), "abc123");
+        assert_eq!(w.id(), w.model + &*w.number);
     }
 }
