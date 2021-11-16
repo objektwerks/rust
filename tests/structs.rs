@@ -26,7 +26,7 @@ mod structs {
     #[test]
     fn tuple_structs() {
         #[derive(PartialEq, Debug)]
-        struct Color(i32, i32, i32);
+        struct Color(u32, u32, u32);
 
         const NAVY: Color = Color(0, 0, 128);
         assert_eq!( NAVY, Color(0, 0, 128) )
