@@ -6,11 +6,14 @@ mod traits {
             model: String,
             number: String,
         }
-
+        impl Wrench {
+            fn new(model: String, number: String) -> Wrench {
+                Wrench { model, number }
+            }
+        }
         trait Part {
             fn id(&self) -> String;
         }
-
         impl Part for Wrench {
             fn id(&self) -> String {
                 let m: String = String::from(&self.model);
@@ -19,7 +22,7 @@ mod traits {
             }
         }
 
-        let w = Wrench { model: String::from("abc"), number: String::from("123") };
+        let w = Wrench::new(String::from("abc"), String::from("123"));
         assert_eq!(w.model, "abc");
         assert_eq!(w.number, "123");
         assert_eq!(w.id(), "abc123");
