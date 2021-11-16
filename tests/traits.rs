@@ -17,9 +17,7 @@ mod traits {
         }
         impl Part for Wrench {
             fn id(&self) -> String {
-                let m: String = String::from(&self.model);
-                let n: String = String::from(&self.number);
-                m + &n
+                return self.model.to_string() + &self.number.to_string();
             }
         }
 
