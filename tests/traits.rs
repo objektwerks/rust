@@ -11,6 +11,7 @@ mod traits {
                 Wrench { model, number }
             }
         }
+
         trait Part {
             fn id(&self) -> String;
         }
