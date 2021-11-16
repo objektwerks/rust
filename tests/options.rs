@@ -6,11 +6,21 @@ mod options {
             return s.parse::<u32>().ok();
         }
 
+        fn square(i: u32) -> Option<u32> {
+            return Some(i * i);
+        }
+
         assert!( to_int("3").is_some() );
         assert!( to_int("c").is_none() );
 
+        assert!( to_int("3").and_then(square).is_some() );
+        assert!( to_int("c").and_then(square).is_none() );
+
         assert_eq!( to_int("3").unwrap_or(0), 3 );
         assert_eq!( to_int("c").unwrap_or(0), 0 );
+
+        assert_eq!( to_int("3").and_then(square).unwrap_or(0), 9 );
+        assert_eq!( to_int("c").and_then(square).unwrap_or(0), 0 );
 
         match to_int("3") {
             Some(i) => assert_eq!(i, 3),
@@ -20,6 +30,8 @@ mod options {
             Some(_) => panic!("Should be None"),
             None => assert!(true),
         }
+
+
 
         let ns = ["1", "a", "2", "3"];
 
