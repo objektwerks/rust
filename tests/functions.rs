@@ -4,6 +4,9 @@ mod functions {
     fn closure() {
         let a = [1, 2, 3];
         assert_eq!( a.iter().map(|x| x * x).last().unwrap_or(0), 9 );
+
+        let multiplier = 3;
+        assert_eq!( a.iter().map(|x| x * multiplier).last().unwrap_or(0), 9 );
     }
 
     #[test]
