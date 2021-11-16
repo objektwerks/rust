@@ -6,6 +6,7 @@ mod functions {
             return i * i;
         }
 
-        println!("Squared {} to {}", 3, square(3));
+        let a = [1, 2, 3];
+        assert_eq!( a.iter().map(|x| square(*x)).last().unwrap_or(0), 9 );
     }
 }
