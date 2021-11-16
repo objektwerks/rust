@@ -58,4 +58,15 @@ mod structs {
         let sum = Point::new(1, 2) + Point::new(3, 4);
         assert_eq!( sum, Point::new(4, 6) )
     }
+
+    #[test]
+    fn destructuring() {
+        struct Value {
+            v: u32,
+        }
+
+        let v = Value { v: 3 };
+        let Value { v: dv } = v;
+        assert_eq!(3, dv);
+    }
 }
