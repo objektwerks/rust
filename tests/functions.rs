@@ -2,7 +2,7 @@
 mod functions {
     #[test]
     fn higher_order() {
-        fn square(i: i32) -> i32 {
+        fn square(i: u32) -> u32 {
             return i * i;
         }
 

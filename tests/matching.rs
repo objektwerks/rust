@@ -2,7 +2,7 @@
 mod matching {
     #[test]
     fn types() {
-        fn square(i: i32) -> i32 {
+        fn square(i: u32) -> u32 {
             match i {
                 1 => 1 * 1,
                 n => n * n,
@@ -16,11 +16,11 @@ mod matching {
     #[test]
     fn structs() {
         struct Point {
-            x: i32,
-            y: i32,
+            x: u32,
+            y: u32,
         }
         impl Point {
-            fn new(x: i32, y: i32) -> Point {
+            fn new(x: u32, y: u32) -> Point {
                 Point { x, y }
             }
             fn match_on_point(&self) -> String {
