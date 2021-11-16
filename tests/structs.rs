@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod structs {
     #[test]
-    fn structure() {
+    fn structs() {
         struct Person {
             first: String,
             last: String,
