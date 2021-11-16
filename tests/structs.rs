@@ -31,4 +31,31 @@ mod structs {
         const NAVY: Color = Color(0, 0, 128);
         assert_eq!( NAVY, Color(0, 0, 128) )
     }
+
+    #[test]
+    fn overloading() {
+        use std::ops::Add;
+
+        #[derive(PartialEq, Debug)]
+        struct Point {
+            x: u32,
+            y: u32,
+        }
+        impl Point {
+            fn new(x: u32, y: u32) -> Point {
+                Point { x, y }
+            }
+        }
+        impl Add for Point {
+            type Output = Point;
+
+            fn add(self, other: Point) -> Point {
+                Point { x: self.x + other.x, y: self.y + other.y }
+            }
+        }
+
+        // Add trait impl for + to add Point structs.
+        let sum = Point::new(1, 2) + Point::new(3, 4);
+        assert_eq!( sum, Point::new(4, 6) )
+    }
 }
