@@ -6,19 +6,20 @@ mod results {
 
     #[test]
     fn ok() {
-        let ok = File::open("Cargo.toml");
-        assert!(ok.is_ok());
+        let result = File::open("Cargo.toml");
+        assert!(result.is_ok());
     }
 
     #[test]
     fn err() {
-        let err = File::open("Crate.toml");
-        assert!(err.is_err());
+        let result = File::open("Crate.toml");
+        assert!(result.is_err());
     }
 
     #[test]
     fn file() {
-        let mut file = File::open("Cargo.toml").unwrap();
+        let result = File::open("Cargo.toml");
+        let mut file = result.unwrap();
         let mut contents = String::new();
         let usize = file.read_to_string(&mut contents).unwrap();
         assert_ne!(usize, 0);
