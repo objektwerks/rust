@@ -29,4 +29,25 @@ mod enums {
         assert_eq!(f.age, 26);
         assert!(f.gender.eq(&Gender::Female));
     }
+
+    #[test]
+    fn destructuring() {
+        enum Car {
+            Porshe,
+            Audi,
+            BMW,
+        }
+
+        fn match_on_car(car: Car) -> u32 {
+            match car {
+                Car::Porshe => 1,
+                Car::Audi   => 2,
+                Car::BMW    => 3,
+            }
+        }
+
+        assert_eq!( match_on_car(Car::Porshe), 1);
+        assert_eq!( match_on_car(Car::Audi), 2);
+        assert_eq!( match_on_car(Car::BMW), 3);
+    }
 }
