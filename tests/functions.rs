@@ -27,7 +27,6 @@ mod functions {
             f(x, y) + g(x, y)
         }
 
-        let result = combine(sum, product, 3, 3);
-        assert_eq!( result, 15 )
+        assert_eq!( combine(sum, product, 3, 3), 15 );
     }
 }
