@@ -17,16 +17,6 @@ mod results {
     }
 
     #[test]
-    fn file() {
-        let result = File::open("Cargo.toml");
-        let mut file = result.unwrap();
-        let mut contents = String::new();
-        let usize = file.read_to_string(&mut contents).unwrap();
-        assert_ne!(usize, 0);
-        assert!(!contents.is_empty());
-    }
-
-    #[test]
     fn result() {
         fn read_file(path: &str) -> Result<String, Error> {
             let mut file = File::open(path)?;
