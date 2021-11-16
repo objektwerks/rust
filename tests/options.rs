@@ -31,8 +31,6 @@ mod options {
             None => assert!(true),
         }
 
-
-
         let ns = ["1", "a", "2", "3"];
 
         assert_eq!( ns.iter().map(|s| to_int(s)).flatten().sum::<u32>(), 6 );
