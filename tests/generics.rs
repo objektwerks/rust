@@ -1,10 +1,11 @@
 #[cfg(test)]
 mod generics {
     #[test]
-    fn generic() {
+    fn generics() {
         struct Data<T> {
             value: T,
         }
+
         let i: Data<i32> = Data { value: 3 };
         assert_eq!(i.value, 3);
 
