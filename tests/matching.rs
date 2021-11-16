@@ -23,7 +23,7 @@ mod matching {
             fn new(x: u32, y: u32) -> Point {
                 Point { x, y }
             }
-            fn match_on_point(&self) -> String {
+            fn match_on_point(self) -> String {
                 match self {
                     Point { x: 1, y: _ } => format!("match on x ({}, {})", self.x, self.y),
                     Point { x: _, y: 2 } => format!("match on y ({}, {})", self.x, self.y),
