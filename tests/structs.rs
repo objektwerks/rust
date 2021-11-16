@@ -54,7 +54,7 @@ mod structs {
             }
         }
 
-        // Add trait impl for + to add Point structs.
+        // Add trait impl for Point to + Point structs.
         let sum = Point::new(1, 2) + Point::new(3, 4);
         assert_eq!( sum, Point::new(4, 6) )
     }
