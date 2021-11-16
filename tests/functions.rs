@@ -1,6 +1,12 @@
 #[cfg(test)]
 mod functions {
     #[test]
+    fn closure() {
+        let a = [1, 2, 3];
+        assert_eq!( a.iter().map(|x| x * x).last().unwrap_or(0), 9 );
+    }
+
+    #[test]
     fn higher_order() {
         fn square(i: u32) -> u32 {
             return i * i;
