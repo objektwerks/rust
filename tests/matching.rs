@@ -27,6 +27,17 @@ mod matching {
     }
 
     #[test]
+    fn ignore() {
+        fn match_on_first_and_last(numbers: (u32, u32, u32)) -> (u32, u32) {
+            match numbers {
+                (first, .., last) => (first, last)
+            }
+        }
+
+        assert_eq!( match_on_first_and_last( (1, 2, 3) ), (1, 3) );
+    }
+
+    #[test]
     fn structs() {
         struct Point {
             x: u32,
