@@ -6,7 +6,7 @@ mod concurrency {
         use std::time::Duration;
 
         let mut i_count = 0;
-        let handle = thread::spawn( move || {
+        let handle = thread::spawn( move || { // move ownership of i_count to thread closure!
             for i in 1..11 {
                 assert_eq!( i, i );
                 i_count = i_count + 1;
