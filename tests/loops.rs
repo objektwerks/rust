@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod loops {
     #[test]
-    fn forloop() {
+    fn for_loop() {
         let mut sum = 0;
         for i in 1..4 {
             sum += i
@@ -18,7 +18,7 @@ mod loops {
     }
 
     #[test]
-    fn whileloop() {
+    fn while_loop() {
         let mut sum = 0;
         while sum < 6 {
             sum += 1
@@ -27,7 +27,7 @@ mod loops {
     }
 
     #[test]
-    fn loopbreak() {
+    fn loop_break() {
         let mut sum = 0;
         loop {
             sum += 1;
@@ -39,7 +39,7 @@ mod loops {
     }
 
     #[test]
-    fn forcontinue() {
+    fn for_loop_continue() {
         let mut sum = 0;
         for i in 1..4 {
             if i % 2 == 0 {
