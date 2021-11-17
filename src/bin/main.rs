@@ -7,14 +7,14 @@ fn main() {
 
     let handle = thread::spawn(|| {
         for i in 1..11 {
-            println!("I'm spawned thread #{}!", i);
+            println!("Spawned thread #{}!", i);
             thread::sleep(Duration::from_millis(i));
         }
         println!("{}", "Goodbye, Rust!");
     });
 
     for j in 1..11 {
-        println!("I'm main thread #{}!", j);
+        println!("Main thread #{}!", j);
         thread::sleep(Duration::from_millis(j));
     }
 
