@@ -94,4 +94,14 @@ mod matching {
         assert_eq!( match_on_ping( Ping::Id { id: 6 } ), 18 );
         assert_eq!( match_on_ping( Ping::Id { id: 9 } ), 9 );
     }
+
+    #[test]
+    fn if_let() {
+        let number = Some(1);
+        if let Some(i) = number {
+            assert_eq!( i, 1);
+        } else {
+            panic!("if let failed on: {:?}", number);
+        }
+    }
 }
