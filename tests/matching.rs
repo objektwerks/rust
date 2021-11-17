@@ -99,9 +99,29 @@ mod matching {
     fn if_let() {
         let number = Some(1);
         if let Some(i) = number {
-            assert_eq!( i, 1);
+            assert_eq!( i, 1 );
         } else {
             panic!("if let failed on: {:?}", number);
+        }
+    }
+
+    #[test]
+    fn while_let() {
+        let mut number = Some(1);
+        loop {
+            match number {
+                Some(i) => {
+                    if i == 3 {
+                        assert_eq!( i, 3 );
+                        number = None
+                    } else {
+                        number = Some(i + 1);
+                    }
+                },
+                _ => {
+                    break;
+                }
+            }
         }
     }
 }
