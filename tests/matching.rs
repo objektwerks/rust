@@ -41,4 +41,29 @@ mod matching {
         let pxy = Point::new(3, 3);
         assert_eq!(pxy.match_on_point(), "default: (3, 3)" );
     }
+
+    #[test]
+    fn binding() {
+        enum Ping {
+            Id { id: u32 },
+        }
+
+        fn match_on_ping(ping: Ping) -> u32 {
+            match ping {
+                Ping::Id {
+                    id: id_var @ 1..=3,
+                } => id_var * 2,
+                Ping::Id {
+                    id: id_var @ 4..=6,
+                } => id_var * 3,
+                Ping::Id {
+                    id
+                } => id,
+            }
+        }
+
+        assert_eq!( match_on_ping( Ping::Id { id: 3 } ), 6 );
+        assert_eq!( match_on_ping( Ping::Id { id: 6 } ), 18 );
+        assert_eq!( match_on_ping( Ping::Id { id: 9 } ), 9 );
+    }
 }
