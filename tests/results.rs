@@ -19,9 +19,9 @@ mod results {
     #[test]
     fn result() {
         fn read_file(path: &str) -> Result<String, Error> {
-            let mut file = File::open(path)?;  // ? unpacks Result if Ok
+            let mut file = File::open(path)?;  // ? unpacks Result if Ok, replaces try!
             let mut contents = String::new();
-            file.read_to_string(&mut contents)?;  // ? unpacks Result if Ok
+            file.read_to_string(&mut contents)?;  // ? unpacks Result if Ok, replaces try!
             Ok(contents)
         }
 
