@@ -28,8 +28,8 @@ mod matching {
 
     #[test]
     fn ignore() {
-        fn match_on_first_and_last(numbers: (u32, u32, u32)) -> (u32, u32) {
-            match numbers {
+        fn match_on_first_and_last(tuple: (u32, u32, u32)) -> (u32, u32) {
+            match tuple {
                 (first, .., last) => (first, last)
             }
         }
