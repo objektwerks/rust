@@ -47,23 +47,23 @@ mod matching {
             fn new(x: u32, y: u32) -> Point {
                 Point { x, y }
             }
-            fn match_on_point(self) -> String {
+            fn match_on_point(self) -> (u32, u32) {
                 match self {
-                    Point { x: 1, y: _ } => format!("match on x ({}, {})", self.x, self.y),
-                    Point { x: _, y: 2 } => format!("match on y ({}, {})", self.x, self.y),
-                    Point { x: _, y: _ } => format!("default: ({}, {})", self.x, self.y),
+                    Point { x: 1, y: _ } => (self.x, self.y),
+                    Point { x: _, y: 2 } => (self.x, self.y),
+                    Point { x: _, y: _ } => (self.x, self.y),
                 }
             }
         }
 
         let px = Point::new(1, 1);
-        assert_eq!(px.match_on_point(), "match on x (1, 1)" );
+        assert_eq!( px.match_on_point(), (1, 1) );
 
         let py = Point::new(2, 2);
-        assert_eq!(py.match_on_point(), "match on y (2, 2)" );
+        assert_eq!( py.match_on_point(), (2, 2) );
 
         let pxy = Point::new(3, 3);
-        assert_eq!(pxy.match_on_point(), "default: (3, 3)" );
+        assert_eq!( pxy.match_on_point(), (3, 3) );
     }
 
     #[test]
