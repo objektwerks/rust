@@ -5,12 +5,24 @@ mod concurrency {
         use std::thread;
         use std::time::Duration;
 
-        let handle = thread::spawn(|| {
+        let mut i_count = 0;
+        let handle = thread::spawn( move || {
             for i in 1..11 {
                 assert_eq!( i, i );
+                i_count = i_count + 1;
                 thread::sleep(Duration::from_millis(i));
             }
+            assert_eq!( i_count, 10 );
         });
+
+        let mut j_count = 0;
+        for j in 1..11 {
+            assert_eq!( j, j );
+            j_count = j_count + 1;
+            thread::sleep(Duration::from_millis(j));
+        }
+        assert_eq!( j_count, 10 );
+
         handle.join().unwrap();
     }
 }
