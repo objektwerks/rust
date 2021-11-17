@@ -54,15 +54,15 @@ mod structs {
             }
         }
 
-        // Add trait impl for Point to + Point structs.
+        // Add trait impl for Point -> to add, or +, two Point structs.
         let sum = Point::new(1, 2) + Point::new(3, 4);
         assert_eq!( sum, Point::new(4, 6) )
     }
 
     #[test]
     fn destructuring() {
-        struct Value {
-            v: u32,
+        struct Value<T> {
+            v: T,
         }
 
         let v = Value { v: 3 };
