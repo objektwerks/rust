@@ -20,14 +20,14 @@ mod enums {
         }
 
         let m = Worker::new(String::from("Barney Rebel"), 26, Gender::Male);
-        assert_eq!(m.name, "Barney Rebel");
-        assert_eq!(m.age, 26);
-        assert!(m.gender.eq(&Gender::Male));
+        assert_eq!( m.name, "Barney Rebel" );
+        assert_eq!( m.age, 26 );
+        assert!( m.gender.eq(&Gender::Male) );
 
         let f = Worker::new(String::from("Betty Rebel"), 26, Gender::Female);
-        assert_eq!(f.name, "Betty Rebel");
-        assert_eq!(f.age, 26);
-        assert!(f.gender.eq(&Gender::Female));
+        assert_eq!( f.name, "Betty Rebel" );
+        assert_eq!( f.age, 26 );
+        assert!( f.gender.eq(&Gender::Female) );
     }
 
     #[test]
@@ -46,8 +46,8 @@ mod enums {
             }
         }
 
-        assert_eq!( match_on_car(Car::Porshe), 1);
-        assert_eq!( match_on_car(Car::Audi), 2);
-        assert_eq!( match_on_car(Car::BMW), 3);
+        assert_eq!( match_on_car(Car::Porshe), 1 );
+        assert_eq!( match_on_car(Car::Audi), 2 );
+        assert_eq!( match_on_car(Car::BMW), 3 );
     }
 }
