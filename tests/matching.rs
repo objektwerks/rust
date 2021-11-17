@@ -35,6 +35,10 @@ mod matching {
         }
 
         assert_eq!( match_on_first_and_last( (1, 2, 3) ), (1, 3) );
+
+        let _ignore_me = 0; // because of the intial underscore!
+        let dont_ignore_me = 1;
+        assert_eq!( dont_ignore_me, 1 );
     }
 
     #[test]
