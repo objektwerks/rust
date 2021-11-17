@@ -108,19 +108,12 @@ mod matching {
     #[test]
     fn while_let() {
         let mut number = Some(1);
-        loop {
-            match number {
-                Some(i) => {
-                    if i == 3 {
-                        assert_eq!( i, 3 );
-                        number = None
-                    } else {
-                        number = Some(i + 1);
-                    }
-                },
-                _ => {
-                    break;
-                }
+        while let Some(i) = number {
+            if i == 3 {
+                assert_eq!( i, 3 );
+                number = None
+            } else {
+                number = Some(i + 1);
             }
         }
     }
