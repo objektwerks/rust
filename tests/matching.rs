@@ -14,6 +14,19 @@ mod matching {
     }
 
     #[test]
+    fn guards() {
+        fn is_even(i: u32) -> bool {
+            match i {
+                i if i % 2 == 0 => true,
+                _ => false,
+            }
+        }
+
+        assert_eq!( is_even(2), true );
+        assert_eq!( is_even(3), false );
+    }
+
+    #[test]
     fn structs() {
         struct Point {
             x: u32,
