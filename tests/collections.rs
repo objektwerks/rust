@@ -170,6 +170,7 @@ mod collections {
         use std::collections::HashMap;
         
         let hm = HashMap::from([(1, 1), (2, 2), (3, 3)]);
+        assert_eq!( hm.get(&3), Some(&3) );
         assert_eq!( hm.contains_key(&3), true );
 
         let mut mhm = HashMap::new();
@@ -187,6 +188,16 @@ mod collections {
 
         let btm = BTreeMap::from([(1, 1), (2, 2), (3, 3)]);
         assert_eq!( btm.get(&3), Some(&3) );
+        assert_eq!( btm.contains_key(&3), true );
+
+        let mut mbtm = BTreeMap::new();
+        mbtm.insert(3, 3 );
+        mbtm.insert(2, 2 );
+        mbtm.insert(1, 1 );
+        assert_eq!(btm, mbtm);
+        assert_eq!(mbtm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
+        assert_eq!(mbtm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
+
     }
 
     #[test]
