@@ -39,13 +39,13 @@ mod collections {
     #[test]
     fn vector() {
         let v = vec![1, 2, 3];
-        assert_eq!( v.len(), 3 );
+        assert_eq!( v.get(0).unwrap_or(&0), &1 );
 
         let mut mv = vec![];
         mv.push(1);
         mv.push(2);
         mv.push(3);
-        assert_eq!( mv.len(), 3 );
+        assert_eq!( mv.get(0).unwrap_or(&0), &1 );
         assert_eq!( v, mv );
     }
 
