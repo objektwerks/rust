@@ -106,23 +106,17 @@ mod collections {
 
     #[test]
     fn string() {
-        let s = String::from("string");
-        assert_eq!( s.len(), 6 );
+        let s = String::from("one");
+        assert_eq!( s.len(), 3 );
 
         let mut ms = String::new();
-        ms.push('s');
-        ms.push('t');
-        ms.push('r');
-        ms.push('i');
+        ms.push('o');
         ms.push('n');
-        ms.push('g');
+        ms.push('e');
         assert_eq!( s, ms );
-        assert_eq!( ms.pop().unwrap_or('z'), 'g' );
+        assert_eq!( ms.pop().unwrap_or('z'), 'e' );
         assert_eq!( ms.pop().unwrap_or('z'), 'n' );
-        assert_eq!( ms.pop().unwrap_or('z'), 'i' );
-        assert_eq!( ms.pop().unwrap_or('z'), 'r' );
-        assert_eq!( ms.pop().unwrap_or('z'), 't' );
-        assert_eq!( ms.pop().unwrap_or('z'), 's' );
+        assert_eq!( ms.pop().unwrap_or('z'), 'o' );
         assert_eq!( ms.pop(), None );
     }
 
