@@ -176,6 +176,7 @@ mod collections {
         mhm.insert( 1, 1 );
         mhm.insert( 2, 2 );
         mhm.insert( 3, 3 );
+        assert_eq!(hm, mhm);
         assert_eq!( mhm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
         assert_eq!( mhm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
     }
