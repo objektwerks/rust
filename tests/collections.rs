@@ -101,6 +101,21 @@ mod collections {
     fn string() {
         let s = String::from("string");
         assert_eq!( s.len(), 6 );
+
+        let mut ms = String::new();
+        ms.push('s');
+        ms.push('t');
+        ms.push('r');
+        ms.push('i');
+        ms.push('n');
+        ms.push('g');
+        assert_eq!( s, ms );
+        assert_eq!( ms.pop().unwrap_or('z'), 'g' );
+        assert_eq!( ms.pop().unwrap_or('z'), 'n' );
+        assert_eq!( ms.pop().unwrap_or('z'), 'i' );
+        assert_eq!( ms.pop().unwrap_or('z'), 'r' );
+        assert_eq!( ms.pop().unwrap_or('z'), 't' );
+        assert_eq!( ms.pop().unwrap_or('z'), 's' );
     }
 
     #[test]
