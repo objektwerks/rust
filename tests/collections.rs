@@ -118,6 +118,13 @@ mod collections {
         assert_eq!( ms.pop().unwrap_or('z'), 'n' );
         assert_eq!( ms.pop().unwrap_or('z'), 'o' );
         assert_eq!( ms.pop(), None );
+
+        let mut msx = String::new();
+        msx.push_str("two");
+        assert_eq!( msx.pop().unwrap_or('z'), 'o' );
+        assert_eq!( msx.pop().unwrap_or('z'), 'w' );
+        assert_eq!( msx.pop().unwrap_or('z'), 't' );
+        assert_eq!( msx.pop(), None );
     }
 
     #[test]
