@@ -44,6 +44,7 @@ mod borrowing {
 
         // let reference_to_nothing = dangle();
         let value = undangle();
+
         assert_eq!( value, "value".to_string() );
     }
 }
