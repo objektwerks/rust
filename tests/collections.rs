@@ -116,6 +116,7 @@ mod collections {
         assert_eq!( ms.pop().unwrap_or('z'), 'r' );
         assert_eq!( ms.pop().unwrap_or('z'), 't' );
         assert_eq!( ms.pop().unwrap_or('z'), 's' );
+        assert_eq!( ms.pop(), None );
     }
 
     #[test]
