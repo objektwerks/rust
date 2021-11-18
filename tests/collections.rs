@@ -45,7 +45,8 @@ mod collections {
         mv.push(1);
         mv.push(2);
         mv.push(3);
-        assert_eq!( mv.get(0).unwrap_or(&0), &1 );
+        assert_eq!( mv.first().unwrap_or(&0), &1 );
+        assert_eq!( mv.last().unwrap_or(&0), &3 );
         assert_eq!( v, mv );
     }
 
