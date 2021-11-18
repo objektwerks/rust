@@ -98,6 +98,12 @@ mod collections {
     }
 
     #[test]
+    fn tuple() {
+        let t:(u32, u32, u32) = (1, 2, 3);
+        assert_eq!( t.0 + t.1 + t.2, 6 );
+    }
+
+    #[test]
     fn string() {
         let s = String::from("string");
         assert_eq!( s.len(), 6 );
@@ -117,12 +123,6 @@ mod collections {
         assert_eq!( ms.pop().unwrap_or('z'), 't' );
         assert_eq!( ms.pop().unwrap_or('z'), 's' );
         assert_eq!( ms.pop(), None );
-    }
-
-    #[test]
-    fn tuple() {
-        let t:(u32, u32, u32) = (1, 2, 3);
-        assert_eq!( t.0 + t.1 + t.2, 6 );
     }
 
     #[test]
