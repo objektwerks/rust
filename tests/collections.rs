@@ -149,8 +149,20 @@ mod collections {
     fn btreeset() {
         use std::collections::BTreeSet;
 
-        let hs = BTreeSet::from([1, 2, 3]);
-        assert!( hs.contains(&3) );
+        let bts = BTreeSet::from([3, 2, 1]);
+        assert_eq!(bts.contains(&3), true );
+
+        let mut mbts = BTreeSet::new();
+        mbts.insert(3);
+        mbts.insert(2);
+        mbts.insert(1);
+        assert_eq!(bts, mbts);
+        assert_eq!(mbts.remove(&3), true );
+        assert_eq!(mbts.contains(&3), false );
+        assert_eq!(mbts.remove(&2), true );
+        assert_eq!(mbts.contains(&2), false );
+        assert_eq!(mbts.remove(&1), true );
+        assert_eq!(mbts.contains(&1), false );
     }
 
     #[test]
