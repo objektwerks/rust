@@ -44,4 +44,19 @@ mod borrowing {
         let value = undangle();
         assert_eq!( value, "value".to_string() );
     }
+
+    #[test]
+    fn lifetime() {
+        fn longest_str<'a>(x: &'a str, y: &'a str) -> &'a str {
+            if x.len() > y.len() {
+                x
+            } else {
+                y
+            }
+        }
+
+        let string_x = "three";
+        let string_y = "four";
+        assert_eq!( longest_str(string_x, string_y), string_x );
+    }
 }
