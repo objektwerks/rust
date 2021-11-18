@@ -14,7 +14,6 @@ mod borrowing {
 
         let value = String::from("value"); // owner
         let len = calc_len( &value );
-
         assert_eq!( len, 5 );
     }
 
@@ -26,7 +25,6 @@ mod borrowing {
 
         let mut value = String::from("value"); // owner
         mutate( &mut value );
-
         assert_eq!( value, "value, value".to_string() );
     }
 
@@ -44,7 +42,6 @@ mod borrowing {
 
         // let reference_to_nothing = dangle();
         let value = undangle();
-
         assert_eq!( value, "value".to_string() );
     }
 }
