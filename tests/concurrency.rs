@@ -53,8 +53,8 @@ mod concurrency {
         for _ in 0..10 {
             let counter = Arc::clone(&counter);
             let handle = thread::spawn( move || {
-                let mut num = counter.lock().unwrap();
-                *num += 1;
+                let mut number = counter.lock().unwrap();
+                *number += 1;
             });
             handles.push(handle);
         }
