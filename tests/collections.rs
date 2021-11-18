@@ -82,6 +82,8 @@ mod collections {
         mll.push_front(1);
         assert_eq!( mll.front().unwrap_or(&0), &1 );
         assert_eq!( mll.back().unwrap_or(&0), &3 );
+        assert_eq!(mll.pop_front().unwrap_or(0), 1 );
+        assert_eq!(mll.pop_back().unwrap_or(0), 3 );
     }
 
     #[test]
