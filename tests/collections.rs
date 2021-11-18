@@ -45,9 +45,13 @@ mod collections {
         mv.push(1);
         mv.push(2);
         mv.push(3);
+        assert_eq!( v, mv );
         assert_eq!( mv.first().unwrap_or(&0), &1 );
         assert_eq!( mv.last().unwrap_or(&0), &3 );
-        assert_eq!( v, mv );
+        assert_eq!( mv.pop().unwrap_or(0), 3 );
+        assert_eq!( mv.pop().unwrap_or(0), 2 );
+        assert_eq!( mv.pop().unwrap_or(0), 1 );
+        assert_eq!( mv.pop(), None );
     }
 
     #[test]
@@ -61,11 +65,11 @@ mod collections {
         mvd.push_front(3);
         mvd.push_front(2);
         mvd.push_front(1);
-        assert_eq!(vd, mvd);
-        assert_eq!(mvd.front().unwrap_or(&0), &1 );
-        assert_eq!(mvd.back().unwrap_or(&0), &3 );
-        assert_eq!(mvd.pop_front().unwrap_or(0), 1 );
-        assert_eq!(mvd.pop_back().unwrap_or(0), 3 );
+        assert_eq!( vd, mvd );
+        assert_eq!( mvd.front().unwrap_or(&0), &1 );
+        assert_eq!( mvd.back().unwrap_or(&0), &3 );
+        assert_eq!( mvd.pop_front().unwrap_or(0), 1 );
+        assert_eq!( mvd.pop_back().unwrap_or(0), 3 );
     }
 
     #[test]
@@ -82,8 +86,8 @@ mod collections {
         mll.push_front(1);
         assert_eq!( mll.front().unwrap_or(&0), &1 );
         assert_eq!( mll.back().unwrap_or(&0), &3 );
-        assert_eq!(mll.pop_front().unwrap_or(0), 1 );
-        assert_eq!(mll.pop_back().unwrap_or(0), 3 );
+        assert_eq!( mll.pop_front().unwrap_or(0), 1 );
+        assert_eq!( mll.pop_back().unwrap_or(0), 3 );
     }
 
     #[test]
