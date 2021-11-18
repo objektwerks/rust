@@ -61,8 +61,11 @@ mod collections {
         mvd.push_front(3);
         mvd.push_front(2);
         mvd.push_front(1);
-        assert_eq!(mvd.front().unwrap_or(&0), &1 );
         assert_eq!(vd, mvd);
+        assert_eq!(mvd.front().unwrap_or(&0), &1 );
+        assert_eq!(mvd.back().unwrap_or(&0), &3 );
+        assert_eq!(mvd.pop_front().unwrap_or(0), 1 );
+        assert_eq!(mvd.pop_back().unwrap_or(0), 3 );
     }
 
     #[test]
