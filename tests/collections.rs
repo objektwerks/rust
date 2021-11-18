@@ -170,7 +170,7 @@ mod collections {
         use std::collections::HashMap;
         
         let hm = HashMap::from([(1, 1), (2, 2), (3, 3)]);
-        assert_eq!( hm.get(&3), Some(&3) );
+        assert_eq!( hm.contains_key(&3), true );
     }
 
     #[test]
