@@ -30,9 +30,13 @@ mod strings {
     fn slice() {
         let br = String::from("barney rebel");
         let barney = &br[0..6];
-        let rebel = &br[7..12];
+        let rebel = &br[7..br.len()];
+        let barney_rebel = &br[0..br.len()];
+        let barney_rebel_x = &br[..];
 
         assert_eq!( barney, "barney" );
         assert_eq!( rebel, "rebel" );
+        assert_eq!(barney_rebel, "barney rebel" );
+        assert_eq!(barney_rebel_x, "barney rebel" );
     }
 }
