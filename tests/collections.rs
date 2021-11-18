@@ -14,7 +14,7 @@ mod collections {
         assert_eq!([1, 2, 3].iter().gt([1].iter()), true);
 
         assert_eq!( a.iter().filter(|&x| x % 2 == 0).next().unwrap_or(&0), &2 );
-        assert_eq!( a.iter().fold(0, |x, y| x + y), 6 );
+        assert_eq!( a.iter().fold(0, |acc, x| acc + x), 6 );
 
         assert_eq!( a.iter().last().unwrap_or(&0), &3 );
         assert_eq!( a.iter().min().unwrap_or(&0), &1 );
