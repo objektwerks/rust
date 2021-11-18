@@ -38,5 +38,10 @@ mod strings {
         assert_eq!( rebel, "rebel" );
         assert_eq!(barney_rebel, "barney rebel" );
         assert_eq!(barney_rebel_x, "barney rebel" );
+
+        let a = [1, 2, 3];
+        let slice = &a[1..a.len()];
+
+        assert_eq!(slice, &[2, 3]);
     }
 }
