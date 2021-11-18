@@ -60,7 +60,7 @@ mod collections {
         mvd.push_front(3);
         mvd.push_front(2);
         mvd.push_front(1);
-        assert_eq!(mvd.get(0).unwrap_or(&0), &1 );
+        assert_eq!(mvd.front().unwrap_or(&0), &1 );
         assert_eq!(vd, mvd);
     }
 
@@ -69,8 +69,15 @@ mod collections {
         use std::collections::LinkedList;
 
         let ll = LinkedList::from( [1, 2, 3] );
-        assert_eq!( ll.front(), Some(&1) );
-        assert_eq!( ll.back(), Some(&3) );
+        assert_eq!( ll.front().unwrap_or(&0), &1 );
+        assert_eq!( ll.back().unwrap_or(&0), &3 );
+
+        let mut mll = LinkedList::new();
+        mll.push_front(3);
+        mll.push_front(2);
+        mll.push_front(1);
+        assert_eq!( mll.front().unwrap_or(&0), &1 );
+        assert_eq!( mll.back().unwrap_or(&0), &3 );
     }
 
     #[test]
