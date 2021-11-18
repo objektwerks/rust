@@ -31,14 +31,14 @@ mod concurrency {
         use std::sync::mpsc;
         use std::thread;
 
-        let (tx, rx) = mpsc::channel();
+        let (producer, consumer) = mpsc::channel();
 
         thread::spawn(move || {
             let message = 1;
-            tx.send(message).unwrap();
+            producer.send(message).unwrap();
         });
 
-        let message = rx.recv().unwrap();
+        let message = consumer.recv().unwrap();
         assert_eq!(message, 1 )
     }
 }
