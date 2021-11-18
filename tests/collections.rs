@@ -130,7 +130,19 @@ mod collections {
         use std::collections::HashSet;
 
         let hs = HashSet::from([1, 2, 3]);
-        assert!( hs.contains(&3) );
+        assert_eq!( hs.contains(&3), true );
+
+        let mut mhs = HashSet::new();
+        mhs.insert(1);
+        mhs.insert(2);
+        mhs.insert(3);
+        assert_eq!( hs, mhs );
+        assert_eq!( mhs.remove(&3), true );
+        assert_eq!( mhs.contains(&3), false );
+        assert_eq!( mhs.remove(&2), true );
+        assert_eq!( mhs.contains(&2), false );
+        assert_eq!( mhs.remove(&1), true );
+        assert_eq!( mhs.contains(&1), false );
     }
 
     #[test]
