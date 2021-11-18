@@ -52,6 +52,7 @@ mod collections {
         assert_eq!( mv.pop().unwrap_or(0), 2 );
         assert_eq!( mv.pop().unwrap_or(0), 1 );
         assert_eq!( mv.pop(), None );
+        assert_eq!( mv.is_empty(), true );
     }
 
     #[test]
@@ -143,6 +144,7 @@ mod collections {
         assert_eq!( mhs.contains(&2), false );
         assert_eq!( mhs.remove(&1), true );
         assert_eq!( mhs.contains(&1), false );
+        assert_eq!( mhs.is_empty(), true );
     }
 
     #[test]
@@ -163,6 +165,7 @@ mod collections {
         assert_eq!( mbts.contains(&2), false );
         assert_eq!( mbts.remove(&1), true );
         assert_eq!( mbts.contains(&1), false );
+        assert_eq!( mbts.is_empty(), true );
     }
 
     #[test]
@@ -180,6 +183,10 @@ mod collections {
         assert_eq!( hm, mhm );
         assert_eq!( mhm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
         assert_eq!( mhm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
+        assert_eq!( mhm.remove(&1).unwrap_or(0), 1 );
+        assert_eq!( mhm.remove(&2).unwrap_or(0), 2 );
+        assert_eq!( mhm.remove(&3).unwrap_or(0), 3 );
+        assert_eq!( mhm.is_empty(), true );
     }
 
     #[test]
@@ -197,7 +204,10 @@ mod collections {
         assert_eq!( btm, mbtm );
         assert_eq!( mbtm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
         assert_eq!( mbtm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
-
+        assert_eq!( mbtm.remove(&1).unwrap_or(0), 1 );
+        assert_eq!( mbtm.remove(&2).unwrap_or(0), 2 );
+        assert_eq!( mbtm.remove(&3).unwrap_or(0), 3 );
+        assert_eq!( mbtm.is_empty(), true );
     }
 
     #[test]
@@ -215,5 +225,6 @@ mod collections {
         assert_eq!( mbh.pop().unwrap_or(0), 2 );
         assert_eq!( mbh.pop().unwrap_or(0), 1 );
         assert_eq!( mbh.pop(), None );
+        assert_eq!( mbh.is_empty(), true );
     }
 }
