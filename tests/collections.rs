@@ -171,6 +171,13 @@ mod collections {
         
         let hm = HashMap::from([(1, 1), (2, 2), (3, 3)]);
         assert_eq!( hm.contains_key(&3), true );
+
+        let mut mhm = HashMap::new();
+        mhm.insert( 1, 1 );
+        mhm.insert( 2, 2 );
+        mhm.insert( 3, 3 );
+        assert_eq!( mhm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
+        assert_eq!( mhm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
     }
 
     #[test]
