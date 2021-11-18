@@ -150,19 +150,19 @@ mod collections {
         use std::collections::BTreeSet;
 
         let bts = BTreeSet::from([3, 2, 1]);
-        assert_eq!(bts.contains(&3), true );
+        assert_eq!( bts.contains(&3), true );
 
         let mut mbts = BTreeSet::new();
         mbts.insert(3);
         mbts.insert(2);
         mbts.insert(1);
-        assert_eq!(bts, mbts);
-        assert_eq!(mbts.remove(&3), true );
-        assert_eq!(mbts.contains(&3), false );
-        assert_eq!(mbts.remove(&2), true );
-        assert_eq!(mbts.contains(&2), false );
-        assert_eq!(mbts.remove(&1), true );
-        assert_eq!(mbts.contains(&1), false );
+        assert_eq! ( bts, mbts );
+        assert_eq!( mbts.remove(&3), true );
+        assert_eq!( mbts.contains(&3), false );
+        assert_eq!( mbts.remove(&2), true );
+        assert_eq!( mbts.contains(&2), false );
+        assert_eq!( mbts.remove(&1), true );
+        assert_eq!( mbts.contains(&1), false );
     }
 
     #[test]
@@ -177,7 +177,7 @@ mod collections {
         mhm.insert( 1, 1 );
         mhm.insert( 2, 2 );
         mhm.insert( 3, 3 );
-        assert_eq!(hm, mhm);
+        assert_eq!( hm, mhm );
         assert_eq!( mhm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
         assert_eq!( mhm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
     }
@@ -194,9 +194,9 @@ mod collections {
         mbtm.insert(3, 3 );
         mbtm.insert(2, 2 );
         mbtm.insert(1, 1 );
-        assert_eq!(btm, mbtm);
-        assert_eq!(mbtm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
-        assert_eq!(mbtm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
+        assert_eq!( btm, mbtm );
+        assert_eq!( mbtm.keys().into_iter().fold(0, |acc, k| acc + k), 6 );
+        assert_eq!( mbtm.values().into_iter().fold(0, |acc, v| acc + v), 6 );
 
     }
 
@@ -206,5 +206,14 @@ mod collections {
 
         let bh = BinaryHeap::from( [1, 2, 3] );
         assert_eq!( bh.peek().unwrap_or(&0), &3 );
+
+        let mut mbh = BinaryHeap::new();
+        mbh.push(1);
+        mbh.push(2);
+        mbh.push(3);
+        assert_eq!( mbh.pop().unwrap_or(0), 3 );
+        assert_eq!( mbh.pop().unwrap_or(0), 2 );
+        assert_eq!( mbh.pop().unwrap_or(0), 1 );
+        assert_eq!( mbh.pop(), None );
     }
 }
