@@ -55,6 +55,13 @@ mod collections {
 
         let vd = VecDeque::from( [1, 2, 3] );
         assert_eq!( vd.get(0).unwrap_or(&0), &1 );
+
+        let mut mvd = VecDeque::new();
+        mvd.push_front(3);
+        mvd.push_front(2);
+        mvd.push_front(1);
+        assert_eq!(mvd.get(0).unwrap_or(&0), &1 );
+        assert_eq!(vd, mvd);
     }
 
     #[test]
