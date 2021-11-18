@@ -1,5 +1,11 @@
 #[cfg(test)]
 mod borrowing {
+    /*
+    1. At any given time, you can have either one mutable
+       reference or any number of immutable references.
+    2. References must always be valid.
+    */
+
     #[test]
     fn ref_immutable() {
         fn calc_len(string: &String) -> usize { // borrower
