@@ -32,12 +32,13 @@ mod strings {
         let barney_rubble = String::from("barney rubble");
         let barney = &barney_rubble[0..6];
         let rubble = &barney_rubble[7..barney_rubble.len()];
-        let barney_rebel = &barney_rubble[0..barney_rubble.len()];
-        let barney_rebel_x = &barney_rubble[..];
         assert_eq!( barney, "barney" );
         assert_eq!( rubble, "rubble" );
-        assert_eq!( barney_rebel, "barney rubble" );
-        assert_eq!( barney_rebel_x, "barney rubble" );
+
+        let barney_rubble_x = &barney_rubble[0..barney_rubble.len()];
+        let barney_rebel_xx = &barney_rubble[..];
+        assert_eq!( barney_rubble_x, "barney rubble" );
+        assert_eq!( barney_rebel_xx, "barney rubble" );
 
         let a = [1, 2, 3];
         let slice = &a[1..a.len()];
