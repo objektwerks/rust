@@ -25,4 +25,20 @@ mod concurrency {
 
         handle.join().unwrap();
     }
+
+    #[test]
+    fn channel() {
+        use std::sync::mpsc;
+        use std::thread;
+
+        let (tx, rx) = mpsc::channel();
+
+        thread::spawn(move || {
+            let message = 1;
+            tx.send(message).unwrap();
+        });
+
+        let message = rx.recv().unwrap();
+        assert_eq!(message, 1 )
+    }
 }
