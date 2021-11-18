@@ -9,7 +9,7 @@ mod concurrency {
         let handle = thread::spawn( move || { // move ownership of i_count to thread closure!
             for i in 1..11 {
                 assert_eq!( i, i );
-                i_count = i_count + 1;
+                i_count += 1;
                 thread::sleep(Duration::from_millis(i));
             }
             assert_eq!( i_count, 10 );
@@ -18,7 +18,7 @@ mod concurrency {
         let mut j_count = 0;
         for j in 1..11 {
             assert_eq!( j, j );
-            j_count = j_count + 1;
+            j_count += 1;
             thread::sleep(Duration::from_millis(j));
         }
         assert_eq!( j_count, 10 );
