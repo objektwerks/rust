@@ -29,4 +29,21 @@ mod borrowing {
 
         assert_eq!( value, "value, value".to_string() );
     }
+
+    #[test]
+    fn ref_dangling() {
+        /*
+        fn dangle() -> &String { // returns dangling reference
+            return &String::from("value");
+        }
+        */
+
+        fn undangle() -> String { // returns new String
+            return String::from("value");
+        }
+
+        // let reference_to_nothing = dangle();
+        let value = undangle();
+        assert_eq!( value, "value".to_string() );
+    }
 }
