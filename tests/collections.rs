@@ -66,6 +66,12 @@ mod collections {
     }
 
     #[test]
+    fn string() {
+        let s = String::from("string");
+        assert_eq!( s.len(), 6 );
+    }
+
+    #[test]
     fn tuple() {
         let t:(u32, u32, u32) = (1, 2, 3);
         assert_eq!( t.0 + t.1 + t.2, 6 );
