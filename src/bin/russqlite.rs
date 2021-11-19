@@ -15,7 +15,7 @@ impl Todo {
         Todo {
             id: 0,
             task,
-            started: Local::now().to_string(),
+            started: Local::today().to_string(),
             completed: "".to_string(),
         }
     }
