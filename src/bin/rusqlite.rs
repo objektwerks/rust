@@ -92,21 +92,21 @@ fn main() -> Result<()> {
     Todo::create_table( &connection )?;
 
     let mut todo = Todo::new( 1, "mow yard".to_string() );
-    let inserted = Todo::insert(&todo, &connection )?;
-    Todo::print_insert(&todo, inserted);
+    let inserted = Todo::insert( &todo, &connection )?;
+    Todo::print_insert( &todo, inserted );
 
-    Todo::print_select( Todo::select(&connection) );
+    Todo::print_select( Todo::select( &connection ) );
 
     todo.completed = Local::now().to_string();
-    let updated = Todo::update(&todo, &connection )?;
-    Todo::print_update(&todo, updated);
+    let updated = Todo::update( &todo, &connection )?;
+    Todo::print_update( &todo, updated );
 
-    Todo::print_select( Todo::select(&connection) );
+    Todo::print_select( Todo::select( &connection ) );
 
-    let deleted = Todo::delete(&todo, &connection)?;
-    Todo::print_delete(&todo, deleted);
+    let deleted = Todo::delete( &todo, &connection )?;
+    Todo::print_delete( &todo, deleted );
 
-    Todo::print_select( Todo::select(&connection) );
+    Todo::print_select( Todo::select( &connection ) );
 
     Ok(())
 }
