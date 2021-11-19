@@ -11,6 +11,11 @@ struct Todo {
 }
 
 impl Todo {
+    const INSERTED: &'static str = "inserted";
+    const UPDATED: &'static str = "updated";
+    const SELECTED: &'static str = "selected";
+    const DELETED: &'static str = "deleted";
+
     fn new(id: u32, task: String) -> Todo {
         Todo {
             id,
@@ -66,19 +71,13 @@ impl Todo {
             params![ self.id ],
         )
     }
-    fn print_insert(&self, rows: usize) -> () {
-        println!("inserted: [{}] {:?}", rows, self);
+    fn print(&self, message: &str, rows: usize) -> () {
+        println!("{}: [{}] {:?}", message, rows, self);
     }
-    fn print_update(&self, rows: usize) -> () {
-        println!("updated: [{}] {:?}", rows, self);
-    }
-    fn print_delete(&self, rows: usize) -> () {
-        println!("deleted: [{}] id -> {:?}", rows, self.id);
-    }
-    fn print_select(result: Result<Vec<Todo>>) -> () {
+    fn print_select(message: &str, result: Result<Vec<Todo>>) -> () {
         let mut count = 1;
         for todo in result.unwrap() {
-            println!("selected: [{}] {:?}", count, todo);
+            println!("{}: [{}] {:?}", message, count, todo);
             count += 1;
         }
         if count == 1 {
@@ -95,25 +94,25 @@ fn main() -> Result<()> {
     // insert
     let mut todo = Todo::new( 1, "mow yard".to_string() );
     let inserted = Todo::insert( &todo, &connection )?;
-    Todo::print_insert( &todo, inserted );
+    Todo::print( &todo, Todo::INSERTED, inserted );
 
     // select
-    Todo::print_select( Todo::select( &connection ) );
+    Todo::print_select( Todo::SELECTED, Todo::select( &connection ) );
 
     // update
     todo.completed = Local::now().to_string();
     let updated = Todo::update( &todo, &connection )?;
-    Todo::print_update( &todo, updated );
+    Todo::print( &todo, Todo::UPDATED, updated );
 
     // select
-    Todo::print_select( Todo::select( &connection ) );
+    Todo::print_select( Todo::SELECTED, Todo::select( &connection ) );
 
     // delete
     let deleted = Todo::delete( &todo, &connection )?;
-    Todo::print_delete( &todo, deleted );
+    Todo::print( &todo, Todo::DELETED, deleted );
 
     // select
-    Todo::print_select( Todo::select( &connection ) );
+    Todo::print_select( Todo::SELECTED, Todo::select( &connection ) );
 
     Ok(())
 }
