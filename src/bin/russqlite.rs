@@ -1,37 +1,50 @@
+use chrono::Local;
+
 use rusqlite::{params, Connection, Result};
 
 #[derive(Debug)]
 struct Todo {
     id: u32,
     task: String,
+    started: String,
+    completed: String,
 }
 
 impl Todo {
     fn new(task: String) -> Todo {
-        Todo { id: 0, task }
+        Todo {
+            id: 0,
+            task,
+            started: Local::today().to_string(),
+            completed: "".to_string(),
+        }
     }
     fn create_table(connection: &Connection) -> Result<usize> {
         connection.execute(
             "CREATE TABLE todo (
-             id   INTEGER PRIMARY KEY AUTOINCREMENT,
-             task TEXT NOT NULL
+             id        INTEGER PRIMARY KEY AUTOINCREMENT,
+             task      TEXT NOT NULL,
+             started   TEXT NOT NULL,
+             completed TEXT NOT NULL
              )",
              [],
         )
     }
     fn insert(&self, connection: &Connection) -> Result<usize> {
         connection.execute(
-            "INSERT INTO todo (task) VALUES (?1)",
-            params![ self.task ],
+            "INSERT INTO todo (task, started, completed) VALUES (?1, ?2, ?3)",
+            params![ self.task, self.started, self.completed ],
         )
     }
     fn select(connection: &Connection) -> Result<Vec<Todo>> {
-        let mut select_todos = connection.prepare("SELECT id, task FROM todo")?;
+        let mut select_todos = connection.prepare("SELECT id, task, started, completed FROM todo")?;
         let todos = select_todos.query_map([], |row| {
             Ok(
                 Todo {
                     id: row.get(0)?,
                     task: row.get(1)?,
+                    started: row.get(2)?,
+                    completed: row.get(3)?,
                 }
             )
         })?;
