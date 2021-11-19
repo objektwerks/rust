@@ -6,6 +6,12 @@ struct Todo {
     task: String,
 }
 
+impl Todo {
+    fn new(task: String) -> Todo {
+        Todo { id: 0, task }
+    }
+}
+
 fn main() -> Result<()> {
     // connect
     let connection = Connection::open_in_memory()?;
@@ -18,10 +24,7 @@ fn main() -> Result<()> {
     )?;
 
     // insert
-    let todo = Todo {
-        id: 0,
-        task: "mow yard".to_string(),
-    };
+    let todo = Todo::new( "mow yard".to_string() );
     let rows = connection.execute(
         "INSERT INTO todo (task) VALUES (?1)",
         params![ todo.task ],
