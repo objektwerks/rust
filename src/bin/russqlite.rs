@@ -11,7 +11,7 @@ fn main() -> Result<()> {
     let connection = Connection::open_in_memory()?;
     connection.execute(
         "CREATE TABLE todo (
-             id   INTEGER PRIMARY KEY,
+             id   INTEGER PRIMARY KEY AUTOINCREMENT,
              task TEXT NOT NULL
          )",
         [],
@@ -19,7 +19,7 @@ fn main() -> Result<()> {
 
     // insert
     let todo = Todo {
-        id: 1,
+        id: 0,
         task: "mow yard".to_string(),
     };
     let rows = connection.execute(
