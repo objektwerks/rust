@@ -52,3 +52,7 @@ Run
 5. cargo run --bin tide      ( curl http://localhost:8081/now )
 6. cargo run --bin reqwest
 7. cargo run --bin main
+
+Doc
+---
+1. carg doc --open
