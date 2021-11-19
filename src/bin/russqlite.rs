@@ -45,8 +45,10 @@ impl Todo {
         println!("todo: [{}] {:?}", rows, self);
     }
     fn print(todos: Result<Vec<Todo>>) -> () {
+        let mut count = 1;
         for todo in todos.unwrap() {
-            println!("todo: {:?}", todo);
+            println!("todo: [{}] {:?}", count, todo);
+            count += 1;
         }
     }
 }
