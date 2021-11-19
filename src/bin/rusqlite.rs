@@ -63,6 +63,9 @@ impl Todo {
     fn print_insert(&self, rows: usize) -> () {
         println!("inserted: [{}] {:?}", rows, self);
     }
+    fn print_update(&self, rows: usize) -> () {
+        println!("updated: [{}] {:?}", rows, self);
+    }
     fn print_select(todos: Result<Vec<Todo>>) -> () {
         let mut count = 1;
         for todo in todos.unwrap() {
@@ -83,7 +86,8 @@ fn main() -> Result<()> {
     Todo::print_select( Todo::select(&connection) );
 
     todo.completed = Local::now().to_string();
-    Todo::update( &todo, &connection )?;
+    let count = Todo::update( &todo, &connection )?;
+    Todo::print_update(&todo, count);
 
     Todo::print_select( Todo::select(&connection) );
 
