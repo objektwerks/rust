@@ -42,7 +42,7 @@ impl Todo {
         Ok(list)
     }
     fn debug(&self, rows: usize) -> () {
-        println!("todo: {} {:?}", rows, self);
+        println!("todo: [{}] {:?}", rows, self);
     }
     fn print(todos: Result<Vec<Todo>>) -> () {
         for todo in todos.unwrap() {
