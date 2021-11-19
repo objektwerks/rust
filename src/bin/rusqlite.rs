@@ -37,6 +37,9 @@ impl Todo {
         )
     }
     fn update(&self, connection: &Connection) -> Result<usize> {
+        // let mut statement = connection.prepare("UPDATE todo SET completed = ?1 WHERE id = ?2")?;
+        // statement.execute( params![ self.completed, self.id ] )
+
         connection.execute(
             "UPDATE todo SET completed = ?1 WHERE id = ?2",
             params![ self.completed, self.id ],
@@ -83,6 +86,7 @@ fn main() -> Result<()> {
     Todo::print_select( Todo::select(&connection) );
 
     todo.completed = Local::now().to_string();
+    println!("modified completed: {:?}", todo);
     Todo::update( &todo, &connection )?;
 
     Todo::print_select( Todo::select(&connection) );
