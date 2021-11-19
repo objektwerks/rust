@@ -11,9 +11,9 @@ struct Todo {
 }
 
 impl Todo {
-    fn new(task: String) -> Todo {
+    fn new(id: u32, task: String) -> Todo {
         Todo {
-            id: 0,
+            id,
             task,
             started: Local::now().to_string(),
             completed: "".to_string(),
@@ -22,7 +22,7 @@ impl Todo {
     fn create_table(connection: &Connection) -> Result<usize> {
         connection.execute(
             "CREATE TABLE todo (
-             id        INTEGER PRIMARY KEY AUTOINCREMENT,
+             id        INTEGER PRIMARY KEY,
              task      TEXT NOT NULL,
              started   TEXT NOT NULL,
              completed TEXT NOT NULL
@@ -37,11 +37,6 @@ impl Todo {
         )
     }
     fn update(&self, connection: &Connection) -> Result<usize> {
-        println!("pre-update: {:?}", self);
-
-        // let mut statement = connection.prepare("UPDATE todo SET completed = ?1 WHERE id = ?2")?;
-        // statement.execute( params![ self.completed, self.id ] )
-
         connection.execute(
             "UPDATE todo SET completed = ?1 WHERE id = ?2",
             params![ self.completed, self.id ],
@@ -81,7 +76,7 @@ fn main() -> Result<()> {
     let connection = Connection::open_in_memory()?;
     Todo::create_table( &connection )?;
 
-    let mut todo = Todo::new( "mow yard".to_string() );
+    let mut todo = Todo::new( 1, "mow yard".to_string() );
     let rows = Todo::insert( &todo, &connection )?;
     Todo::print_insert(&todo, rows);
 
