@@ -71,10 +71,10 @@ impl Todo {
             params![ self.id ],
         )
     }
-    fn print(&self, message: &str, rows: usize) -> () {
+    fn println(&self, message: &str, rows: usize) -> () {
         println!("{}: [{}] {:?}", message, rows, self);
     }
-    fn print_select(message: &str, result: Result<Vec<Todo>>) -> () {
+    fn printlns(message: &str, result: Result<Vec<Todo>>) -> () {
         let mut count = 1;
         for todo in result.unwrap() {
             println!("{}: [{}] {:?}", message, count, todo);
@@ -94,25 +94,25 @@ fn main() -> Result<()> {
     // insert
     let mut todo = Todo::new( 1, "mow yard".to_string() );
     let inserted = Todo::insert( &todo, &connection )?;
-    Todo::print( &todo, Todo::INSERTED, inserted );
+    Todo::println(&todo, Todo::INSERTED, inserted );
 
     // select
-    Todo::print_select( Todo::SELECTED, Todo::select( &connection ) );
+    Todo::printlns(Todo::SELECTED, Todo::select( &connection ) );
 
     // update
     todo.completed = Local::now().to_string();
     let updated = Todo::update( &todo, &connection )?;
-    Todo::print( &todo, Todo::UPDATED, updated );
+    Todo::println(&todo, Todo::UPDATED, updated );
 
     // select
-    Todo::print_select( Todo::SELECTED, Todo::select( &connection ) );
+    Todo::printlns(Todo::SELECTED, Todo::select( &connection ) );
 
     // delete
     let deleted = Todo::delete( &todo, &connection )?;
-    Todo::print( &todo, Todo::DELETED, deleted );
+    Todo::println(&todo, Todo::DELETED, deleted );
 
     // select
-    Todo::print_select( Todo::SELECTED, Todo::select( &connection ) );
+    Todo::printlns(Todo::SELECTED, Todo::select( &connection ) );
 
     Ok(())
 }
