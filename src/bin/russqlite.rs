@@ -2,7 +2,7 @@ use rusqlite::{params, Connection, Result};
 
 #[derive(Debug)]
 struct Todo {
-    id: i32,
+    id: u32,
     task: String,
 }
 
