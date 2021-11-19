@@ -36,6 +36,12 @@ impl Todo {
             params![ self.task, self.started, self.completed ],
         )
     }
+    fn update(&self, connection: &Connection) -> Result<usize> {
+        connection.execute(
+            "UPDATE todo SET completed = ?1 WHERE id = ?2",
+            params![ self.completed, self.id ],
+        )
+    }
     fn select(connection: &Connection) -> Result<Vec<Todo>> {
         let mut select_todos = connection.prepare("SELECT id, task, started, completed FROM todo")?;
         let todos = select_todos.query_map([], |row| {
@@ -70,9 +76,14 @@ fn main() -> Result<()> {
     let connection = Connection::open_in_memory()?;
     Todo::create_table( &connection )?;
 
-    let todo = Todo::new( "mow yard".to_string() );
+    let mut todo = Todo::new( "mow yard".to_string() );
     let rows = Todo::insert( &todo, &connection )?;
     Todo::print_insert(&todo, rows);
+
+    Todo::print_select( Todo::select(&connection) );
+
+    todo.completed = Local::now().to_string();
+    Todo::update( &todo, &connection )?;
 
     Todo::print_select( Todo::select(&connection) );
 
