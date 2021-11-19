@@ -25,7 +25,7 @@ impl Todo {
             params![ self.task ],
         )
     }
-    fn list(connection: &Connection) -> Result<Vec<Todo>> {
+    fn select(connection: &Connection) -> Result<Vec<Todo>> {
         let mut select_todos = connection.prepare("SELECT id, task FROM todo")?;
         let todos = select_todos.query_map([], |row| {
             Ok(
@@ -41,6 +41,9 @@ impl Todo {
         }
         Ok(list)
     }
+    fn debug(&self, rows: usize) -> () {
+        println!("inserted: {} {:?}", rows, self);
+    }
     fn print(todos: Result<Vec<Todo>>) -> () {
         for todo in todos.unwrap() {
             println!("selected: {:?}", todo);
@@ -54,9 +57,9 @@ fn main() -> Result<()> {
 
     let todo = Todo::new( "mow yard".to_string() );
     let rows = Todo::insert( &todo, &connection )?;
-    println!("inserted: {} {:?}", rows, todo);
+    Todo::debug(&todo, rows);
 
-    Todo::print( Todo::list(&connection) );
+    Todo::print( Todo::select(&connection) );
 
     Ok(())
 }
