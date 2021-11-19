@@ -42,11 +42,11 @@ impl Todo {
         Ok(list)
     }
     fn debug(&self, rows: usize) -> () {
-        println!("todos: {} {:?}", rows, self);
+        println!("todo: {} {:?}", rows, self);
     }
     fn print(todos: Result<Vec<Todo>>) -> () {
         for todo in todos.unwrap() {
-            println!("todos: {:?}", todo);
+            println!("todo: {:?}", todo);
         }
     }
 }
