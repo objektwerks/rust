@@ -10,6 +10,15 @@ impl Todo {
     fn new(task: String) -> Todo {
         Todo { id: 0, task }
     }
+    fn table(connection: &Connection) -> Result<usize> {
+        connection.execute(
+            "CREATE TABLE todo (
+             id   INTEGER PRIMARY KEY AUTOINCREMENT,
+             task TEXT NOT NULL
+         )",
+            [],
+        )
+    }
     fn insert(&self, connection: &Connection) -> Result<usize> {
         connection.execute(
             "INSERT INTO todo (task) VALUES (?1)",
@@ -41,13 +50,7 @@ impl Todo {
 
 fn main() -> Result<()> {
     let connection = Connection::open_in_memory()?;
-    connection.execute(
-        "CREATE TABLE todo (
-             id   INTEGER PRIMARY KEY AUTOINCREMENT,
-             task TEXT NOT NULL
-         )",
-        [],
-    )?;
+    Todo::table( &connection )?;
 
     let todo = Todo::new( "mow yard".to_string() );
     let rows = Todo::insert( &todo, &connection )?;
