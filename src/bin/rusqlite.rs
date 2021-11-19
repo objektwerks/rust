@@ -37,9 +37,11 @@ impl Todo {
         )
     }
     fn update(&self, connection: &Connection) -> Result<usize> {
+        println!("pre-update: {:?}", self);
+
         // let mut statement = connection.prepare("UPDATE todo SET completed = ?1 WHERE id = ?2")?;
         // statement.execute( params![ self.completed, self.id ] )
-        println!("update: {:?}", self);
+
         connection.execute(
             "UPDATE todo SET completed = ?1 WHERE id = ?2",
             params![ self.completed, self.id ],
