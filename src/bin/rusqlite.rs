@@ -94,25 +94,25 @@ fn main() -> Result<()> {
     // insert
     let mut todo = Todo::new( 1, "mow yard".to_string() );
     let inserted = Todo::insert( &todo, &connection )?;
-    Todo::println(&todo, Todo::INSERTED, inserted );
+    Todo::println( &todo, Todo::INSERTED, inserted );
 
     // select
-    Todo::printlns(Todo::SELECTED, Todo::select( &connection ) );
+    Todo::printlns( Todo::SELECTED, Todo::select( &connection ) );
 
     // update
     todo.completed = Local::now().to_string();
     let updated = Todo::update( &todo, &connection )?;
-    Todo::println(&todo, Todo::UPDATED, updated );
+    Todo::println( &todo, Todo::UPDATED, updated );
 
     // select
-    Todo::printlns(Todo::SELECTED, Todo::select( &connection ) );
+    Todo::printlns( Todo::SELECTED, Todo::select( &connection ) );
 
     // delete
     let deleted = Todo::delete( &todo, &connection )?;
-    Todo::println(&todo, Todo::DELETED, deleted );
+    Todo::println( &todo, Todo::DELETED, deleted );
 
     // select
-    Todo::printlns(Todo::SELECTED, Todo::select( &connection ) );
+    Todo::printlns( Todo::SELECTED, Todo::select( &connection ) );
 
     Ok(())
 }
