@@ -1,4 +1,9 @@
 fn main() {
+    use std::env;
+
+    let args: Vec<String> = env::args().collect();
+    println!("main args: {:?}", args);
+
     const MESSAGE: &str = "Hello, Rust!";
     println!("{}", MESSAGE);
 
