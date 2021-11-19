@@ -58,5 +58,15 @@ mod borrowing {
         let string_x = "three";
         let string_y = "four";
         assert_eq!( longest_str(string_x, string_y), string_x );
+
+        struct PartHolder<'a> {
+            part: &'a str,
+        }
+
+        let part_a = "part-a";
+        let part_holder = PartHolder {
+            part: part_a,
+        };
+        assert_eq!( part_holder.part.len(), 6 );
     }
 }
