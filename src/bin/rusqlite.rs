@@ -88,24 +88,31 @@ impl Todo {
 }
 
 fn main() -> Result<()> {
+    // connect
     let connection = Connection::open_in_memory()?;
     Todo::create_table( &connection )?;
 
+    // insert
     let mut todo = Todo::new( 1, "mow yard".to_string() );
     let inserted = Todo::insert( &todo, &connection )?;
     Todo::print_insert( &todo, inserted );
 
+    // select
     Todo::print_select( Todo::select( &connection ) );
 
+    // update
     todo.completed = Local::now().to_string();
     let updated = Todo::update( &todo, &connection )?;
     Todo::print_update( &todo, updated );
 
+    // select
     Todo::print_select( Todo::select( &connection ) );
 
+    // delete
     let deleted = Todo::delete( &todo, &connection )?;
     Todo::print_delete( &todo, deleted );
 
+    // select
     Todo::print_select( Todo::select( &connection ) );
 
     Ok(())
