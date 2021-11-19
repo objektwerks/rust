@@ -10,10 +10,15 @@ impl Todo {
     fn new(task: String) -> Todo {
         Todo { id: 0, task }
     }
+    fn insert(&self, connection: &Connection) -> Result<usize> {
+        connection.execute(
+            "INSERT INTO todo (task) VALUES (?1)",
+            params![ self.task ],
+        )
+    }
 }
 
 fn main() -> Result<()> {
-    // connect
     let connection = Connection::open_in_memory()?;
     connection.execute(
         "CREATE TABLE todo (
@@ -23,15 +28,10 @@ fn main() -> Result<()> {
         [],
     )?;
 
-    // insert
     let todo = Todo::new( "mow yard".to_string() );
-    let rows = connection.execute(
-        "INSERT INTO todo (task) VALUES (?1)",
-        params![ todo.task ],
-    )?;
+    let rows = Todo::insert(&todo, &connection)?;
     println!("inserted: {} {:?}", rows, todo);
 
-    // select
     let mut select_todos = connection.prepare("SELECT id, task FROM todo")?;
     let todos = select_todos.query_map([], |row| {
         Ok(
