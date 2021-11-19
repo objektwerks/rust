@@ -41,13 +41,13 @@ impl Todo {
         }
         Ok(list)
     }
-    fn debug(&self, rows: usize) -> () {
-        println!("todo: [{}] {:?}", rows, self);
+    fn print_insert(&self, rows: usize) -> () {
+        println!("inserted: [{}] {:?}", rows, self);
     }
-    fn print(todos: Result<Vec<Todo>>) -> () {
+    fn print_select(todos: Result<Vec<Todo>>) -> () {
         let mut count = 1;
         for todo in todos.unwrap() {
-            println!("todo: [{}] {:?}", count, todo);
+            println!("selected: [{}] {:?}", count, todo);
             count += 1;
         }
     }
@@ -59,9 +59,9 @@ fn main() -> Result<()> {
 
     let todo = Todo::new( "mow yard".to_string() );
     let rows = Todo::insert( &todo, &connection )?;
-    Todo::debug(&todo, rows);
+    Todo::print_insert(&todo, rows);
 
-    Todo::print( Todo::select(&connection) );
+    Todo::print_select( Todo::select(&connection) );
 
     Ok(())
 }
