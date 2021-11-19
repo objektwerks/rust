@@ -3,7 +3,7 @@ use chrono::Utc;
 use tide::{Request, Result};
 
 async fn now(_: Request<()>) -> Result {
-    Ok(format!("Now: {}", Utc::now().to_string()).into())
+    Ok( format!("Now: {}", Utc::now().to_string()).into() )
 }
 
 /**
