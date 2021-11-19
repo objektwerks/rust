@@ -43,8 +43,8 @@ impl Todo {
         )
     }
     fn select(connection: &Connection) -> Result<Vec<Todo>> {
-        let mut select_todos = connection.prepare("SELECT id, task, started, completed FROM todo")?;
-        let todos = select_todos.query_map([], |row| {
+        let mut statement = connection.prepare("SELECT id, task, started, completed FROM todo")?;
+        let result = statement.query_map([], |row| {
             Ok(
                 Todo {
                     id: row.get(0)?,
@@ -54,11 +54,11 @@ impl Todo {
                 }
             )
         })?;
-        let mut list = Vec::new();
-        for todo in todos {
-            list.push(todo?);
+        let mut todos = Vec::new();
+        for item in result {
+            todos.push(item?);
         }
-        Ok(list)
+        Ok(todos)
     }
     fn delete(&self, connection: &Connection) -> Result<usize> {
         connection.execute(
