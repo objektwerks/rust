@@ -8,8 +8,9 @@ Rust
 5. rocket
 6. tide
 7. reqwest
-8. serde, serde_json
-9. tokio
+8. rusqlite
+9. serde, serde_json
+10. tokio
 >See: crates.io for these and more dependencies.
 
 Install
