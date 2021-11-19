@@ -81,6 +81,9 @@ impl Todo {
             println!("selected: [{}] {:?}", count, todo);
             count += 1;
         }
+        if count == 1 {
+            println!("selected is empty!");
+        }
     }
 }
 
