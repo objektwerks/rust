@@ -15,8 +15,8 @@ impl Todo {
             "CREATE TABLE todo (
              id   INTEGER PRIMARY KEY AUTOINCREMENT,
              task TEXT NOT NULL
-         )",
-            [],
+             )",
+             [],
         )
     }
     fn insert(&self, connection: &Connection) -> Result<usize> {
