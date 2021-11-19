@@ -75,9 +75,9 @@ impl Todo {
     fn print_delete(&self, rows: usize) -> () {
         println!("deleted: [{}] id -> {:?}", rows, self.id);
     }
-    fn print_select(todos: Result<Vec<Todo>>) -> () {
+    fn print_select(result: Result<Vec<Todo>>) -> () {
         let mut count = 1;
-        for todo in todos.unwrap() {
+        for todo in result.unwrap() {
             println!("selected: [{}] {:?}", count, todo);
             count += 1;
         }
