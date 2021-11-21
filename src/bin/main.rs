@@ -1,14 +1,13 @@
-fn main() {
-    use std::env;
+use std::env;
+use std::thread;
+use std::time::Duration;
 
+fn main() {
     let args: Vec<String> = env::args().collect();
     println!("main args: {:?}", args);
 
     const MESSAGE: &str = "Hello, Rust!";
     println!("{}", MESSAGE);
-
-    use std::thread;
-    use std::time::Duration;
 
     let handle = thread::spawn(|| {
         for i in 1..11 {
