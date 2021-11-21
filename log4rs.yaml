@@ -3,7 +3,7 @@ appenders:
     kind: console
     encoder:
       pattern: "{h({d(%Y-%m-%d %H:%M:%S)(utc)} - {l}: {m}{n})}"
-  ile_logger:
+  file_logger:
     kind: file
     path: "target/main.log"
     encoder:
