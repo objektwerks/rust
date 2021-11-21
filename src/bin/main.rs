@@ -11,9 +11,11 @@ fn main() {
 
     let args: Vec<String> = env::args().collect();
     println!("main args: {:?}", args);
+    info!("logger args: {:?} ", args);
 
     const MESSAGE: &str = "Hello, Rust!";
     println!("{}", MESSAGE);
+    info!("logger message: {:?} ", MESSAGE);
 
     let handle = thread::spawn(|| {
         for i in 1..11 {
