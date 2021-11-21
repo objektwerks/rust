@@ -5,7 +5,7 @@ appenders:
       pattern: "{h({d(%Y-%m-%d %H:%M:%S)(utc)} - {l}: {m}{n})}"
   file_logger:
     kind: file
-    path: "target/main.log"
+    path: "target/app.log"
     encoder:
       pattern: "{d(%Y-%m-%d %H:%M:%S)(utc)} - {h({l})}: {m}{n}"
 root:
