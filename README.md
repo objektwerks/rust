@@ -10,8 +10,9 @@ Rust
 7. reqwest
 8. rusqlite
 9. serde, serde_json
-10. tokio
-11. log, log4rs
+10. sqlx
+11. tokio
+12. log, log4rs
 >See: crates.io for these and more dependencies.
 
 Install
@@ -54,8 +55,9 @@ Run
 5. cargo run --bin tide      ( curl http://localhost:8081/now )
 6. cargo run --bin reqwest
 7. cargo run --bin rusqlite
-8. cargo run --bin logger
-9. cargo run --bin app
+8. cargo run --bin sqlx
+9. cargo run --bin logger
+10. cargo run --bin app
 
 Doc
 ---
