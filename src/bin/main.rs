@@ -10,12 +10,12 @@ fn main() {
     info!("log4rs logger initialized!");
 
     let args: Vec<String> = env::args().collect();
-    println!("main args: {:?}", args);
-    info!("logger args: {:?} ", args);
+    let current_dir = env::current_dir();
+    info!("args: {:?}", args);
+    info!("current dir: {:?} ", current_dir.unwrap().display());
 
     const MESSAGE: &str = "Hello, Rust!";
     println!("{}", MESSAGE);
-    info!("logger message: {:?} ", MESSAGE);
 
     let handle = thread::spawn(|| {
         for i in 1..11 {
