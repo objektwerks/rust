@@ -1,8 +1,14 @@
+use log::info;
+use log4rs;
+
 use std::env;
 use std::thread;
 use std::time::Duration;
 
 fn main() {
+    log4rs::init_file("log4rs.yaml", Default::default()).unwrap();
+    info!("log4rs logger initialized!");
+
     let args: Vec<String> = env::args().collect();
     println!("main args: {:?}", args);
 
