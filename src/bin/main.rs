@@ -14,6 +14,12 @@ fn main() {
     info!("args: {:?}", args);
     info!("current dir: {:?} ", current_dir.unwrap().display());
 
+    let key = "key";
+    let value = "value";
+    info!("pre-set -> key: {} value: {}", key, value);
+    env::set_var(key, value);
+    info!("post-set -> key: {} value: {:?}", key, env::var(key));
+
     const MESSAGE: &str = "Hello, Rust!";
     println!("{}", MESSAGE);
 
