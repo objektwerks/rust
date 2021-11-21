@@ -17,6 +17,7 @@ rusqlite = "0.26.1"
 serde = { version = "1.0.130", features = ["derive"] }
 serde_json = "1.0.71"
 tokio = { version = "1.14.0", features = ["full"] }
+log4rs = "1.0.0"
 
 [profile.dev]
 opt-level = 0
