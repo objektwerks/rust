@@ -37,4 +37,8 @@ fn main() {
     }
 
     handle.join().unwrap();
+
+    for (key, value) in env::vars_os() {
+        info!("{:?}: {:?}", key, value);
+    }
 }
