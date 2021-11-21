@@ -11,6 +11,7 @@ Rust
 8. rusqlite
 9. serde, serde_json
 10. tokio
+11. log, log4rs
 >See: crates.io for these and more dependencies.
 
 Install
