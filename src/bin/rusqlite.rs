@@ -16,10 +16,10 @@ impl Todo {
     const SELECTED: &'static str = "selected";
     const DELETED: &'static str = "deleted";
 
-    fn new(id: u32, task: String) -> Todo {
+    fn new(id: u32, task: &str) -> Todo {
         Todo {
             id,
-            task,
+            task: task.to_string(),
             started: Local::now().to_string(),
             completed: "".to_string(),
         }
@@ -92,7 +92,7 @@ fn main() -> Result<()> {
     Todo::create_table( &connection )?;
 
     // insert
-    let mut todo = Todo::new( 1, "mow yard".to_string() );
+    let mut todo = Todo::new( 1, "mow yard" );
     let inserted = Todo::insert( &todo, &connection )?;
     Todo::println( &todo, Todo::INSERTED, inserted );
 
