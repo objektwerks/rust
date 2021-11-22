@@ -19,6 +19,20 @@ impl Todo {
     }
 }
 
-fn main() {
+use sqlx::postgres::PgPoolOptions;
+
+use std::env;
+
+#[async_std::main]
+async fn main() -> Result<(), sqlx::Error> {
+    let url = env::var("TODO_POSTGRESQL_URL").unwrap();
+    let pool = PgPoolOptions::new()
+        .max_connections(3)
+        .connect(url.as_str())
+        .await?;
+
+    println!("pool: {:?}", pool);
     println!("todo: {:?}, ", Todo::new(1, "wash car"));
+
+    Ok(())
 }
