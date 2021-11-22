@@ -83,4 +83,4 @@ Postgresql
 1. psql todo
 2. \i ddl.sql
 3. \q
->Alternatively run: psql -d todo -f ddl.sql
+>**Alternatively run:** psql -d todo -f ddl.sql
