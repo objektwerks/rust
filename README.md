@@ -62,3 +62,25 @@ Run
 Doc
 ---
 1. carg doc --open
+
+Postgresql
+----------
+>Url: "postgresql://localhost:5432/todo?user=your_computer_name&password='"
+>**Create**
+1. psql postgres
+2. CREATE DATABASE todo OWNER [your computer name];
+3. GRANT ALL PRIVILEGES ON DATABASE todo TO [your computer name];
+4. \l
+5. \q
+6. psql todo
+7. \i ddl.sql
+8. \q
+>**Drop**
+1. psql postgres
+2. drop database todo;
+3. \q
+>**DDL**
+1. psql todo
+2. \i ddl.sql
+3. \q
+>Alternatively run: psql -d todo -f ddl.sql
