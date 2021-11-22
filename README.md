@@ -65,7 +65,7 @@ Doc
 
 Postgresql
 ----------
->Url: "postgresql://localhost:5432/todo?user=computer_name&password='"
+* Url: "postgresql://localhost:5432/todo?user=computer_name&password='"
 >**Create**
 1. psql postgres
 2. CREATE DATABASE todo OWNER [computer name];
