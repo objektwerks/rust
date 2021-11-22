@@ -65,11 +65,11 @@ Doc
 
 Postgresql
 ----------
->Url: "postgresql://localhost:5432/todo?user=your_computer_name&password='"
+>Url: "postgresql://localhost:5432/todo?user=computer_name&password='"
 >**Create**
 1. psql postgres
-2. CREATE DATABASE todo OWNER [your computer name];
-3. GRANT ALL PRIVILEGES ON DATABASE todo TO [your computer name];
+2. CREATE DATABASE todo OWNER [computer name];
+3. GRANT ALL PRIVILEGES ON DATABASE todo TO [computer name];
 4. \l
 5. \q
 6. psql todo
