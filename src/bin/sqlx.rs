@@ -17,7 +17,6 @@ impl Todo {
             completed: "".to_string(),
         }
     }
-
     async fn insert(&self, pool: &Pool<Postgres>) -> anyhow::Result<i32> {
         let row = sqlx::query!(
             r#"INSERT INTO todo (task, started, completed) VALUES ($1, $2, $3) RETURNING id"#,
@@ -29,7 +28,6 @@ impl Todo {
         .await?;
         Ok(row.id)
     }
-
     async fn update(&self, pool: &Pool<Postgres>) -> anyhow::Result<u64> {
         let rows_affected = sqlx::query!(
             r#"UPDATE todo SET completed = $1 WHERE id = $2"#,
@@ -41,7 +39,6 @@ impl Todo {
         .rows_affected();
         Ok(rows_affected)
     }
-
     async fn select(pool: &Pool<Postgres>) -> anyhow::Result<Vec<Todo>> {
         let todos = sqlx::query_as!(
             Todo,
@@ -51,9 +48,18 @@ impl Todo {
         .await?;
         Ok(todos)
     }
+    async fn delete(&self, pool: &Pool<Postgres>) -> anyhow::Result<u64> {
+        let result: PgQueryResult = sqlx::query!(
+            r#"DELETE from todo WHERE id = $1"#,
+            self.id
+        )
+        .execute(pool)
+        .await?;
+        Ok(result.rows_affected())
+    }
 }
 
-use sqlx::postgres::PgPoolOptions;
+use sqlx::postgres::{PgPoolOptions, PgQueryResult};
 
 use std::env;
 use sqlx::{Pool, Postgres};
@@ -74,14 +80,18 @@ async fn main() -> Result<(), sqlx::Error> {
 
     // update
     todo.completed = Local::now().to_string();
-    let rows_affected = Todo::update( &todo, &pool ).await.unwrap();
-    println!("updated {} todo: {:?}", rows_affected, todo);
+    let updated = Todo::update( &todo, &pool ).await.unwrap();
+    println!("updated {} todo: {:?}", updated, todo);
 
     // select
     let todos = Todo::select( &pool ).await.unwrap();
     for todo in todos {
         println!("selected todo: {:?}", todo);
     }
+
+    // delete
+    let deleted = Todo::delete( &todo, &pool ).await.unwrap();
+    println!("deleted {} todo: {:?}", deleted, todo);
 
     Ok(())
 }
