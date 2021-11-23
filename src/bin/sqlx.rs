@@ -41,6 +41,16 @@ impl Todo {
         .rows_affected();
         Ok(rows_affected)
     }
+
+    async fn select(pool: &Pool<Postgres>) -> anyhow::Result<Vec<Todo>> {
+        let todos = sqlx::query_as!(
+            Todo,
+            "SELECT id, task, started, completed FROM todo"
+        )
+        .fetch_all(pool)
+        .await?;
+        Ok(todos)
+    }
 }
 
 use sqlx::postgres::PgPoolOptions;
@@ -66,6 +76,12 @@ async fn main() -> Result<(), sqlx::Error> {
     todo.completed = Local::now().to_string();
     let rows_affected = Todo::update( &todo, &pool ).await.unwrap();
     println!("updated {} todo: {:?}", rows_affected, todo);
+
+    // select
+    let todos = Todo::select( &pool ).await.unwrap();
+    for todo in todos {
+        println!("selected todo: {:?}", todo);
+    }
 
     Ok(())
 }
