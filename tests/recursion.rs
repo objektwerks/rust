@@ -22,4 +22,20 @@ mod recursion {
         }
         assert_eq!( fibonacci(9, 0, 1), 34 );
     }
+
+    #[test]
+    fn sum() {
+        fn sum(mut ns: Vec<i32>, acc: i32) -> i32 {
+            match ns {
+                _ if ns.is_empty() => acc,
+                _ => {
+                    let head = ns.pop().unwrap();
+                    let tail = ns;
+                    sum(tail, acc + head)
+                },
+            }
+        }
+        let ns = vec![1, 2, 3];
+        assert_eq!( sum(ns, 0), 6 );
+    }
 }
