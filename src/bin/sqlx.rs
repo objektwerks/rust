@@ -27,8 +27,19 @@ impl Todo {
         )
         .fetch_one(pool)
         .await?;
-
         Ok(row.id)
+    }
+
+    async fn update(&self, pool: &Pool<Postgres>) -> anyhow::Result<u64> {
+        let rows_affected = sqlx::query!(
+            r#"UPDATE todo SET completed = $1 WHERE id = $2"#,
+            self.completed,
+            self.id
+        )
+        .execute(pool)
+        .await?
+        .rows_affected();
+        Ok(rows_affected)
     }
 }
 
@@ -46,10 +57,15 @@ async fn main() -> Result<(), sqlx::Error> {
         .await?;
     println!("pool: {:?}", pool);
 
+    // insert
     let mut todo = Todo::new(1, "wash car");
-    let future_id = Todo::insert(&todo, &pool).await;
-    todo.id = future_id.unwrap();
-    println!("todo: {:?}, ", todo);
+    todo.id = Todo::insert(&todo, &pool).await.unwrap();
+    println!("inserted todo: {:?}", todo);
+
+    // update
+    todo.completed = Local::now().to_string();
+    let rows_affected = Todo::update( &todo, &pool ).await.unwrap();
+    println!("updated {} todo: {:?}", rows_affected, todo);
 
     Ok(())
 }
