@@ -59,10 +59,10 @@ impl Todo {
     }
 }
 
+use sqlx::{Pool, Postgres};
 use sqlx::postgres::{PgPoolOptions, PgQueryResult};
 
 use std::env;
-use sqlx::{Pool, Postgres};
 
 #[async_std::main]
 async fn main() -> Result<(), sqlx::Error> {
