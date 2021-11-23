@@ -54,4 +54,22 @@ mod recursion {
         let ns = vec![1, 2, 3];
         assert_eq!( product(ns, 1), 6 );
     }
+
+    #[test]
+    fn reverse() {
+        fn reverse(mut ns: Vec<i32>, mut acc: Vec<i32>) -> Vec<i32> {
+            match ns {
+                _ if ns.is_empty() => acc,
+                _ => {
+                    let head = ns.pop().unwrap();
+                    let tail = ns;
+                    acc.push(head);
+                    reverse(tail, acc)
+                },
+            }
+        }
+        let ns = vec![1, 2, 3];
+        let acc = vec![];
+        assert_eq!( reverse(ns, acc), vec![3, 2, 1] );
+    }
 }
