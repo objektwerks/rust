@@ -2,14 +2,14 @@ use chrono::Local;
 
 #[derive(Debug)]
 struct Todo {
-    id: u32,
+    id: i32,
     task: String,
     started: String,
     completed: String,
 }
 
 impl Todo {
-    fn new(id: u32, task: &str) -> Todo {
+    fn new(id: i32, task: &str) -> Todo {
         Todo {
             id,
             task: task.to_string(),
@@ -17,22 +17,40 @@ impl Todo {
             completed: "".to_string(),
         }
     }
+
+    async fn insert(&self, pool: &Pool<Postgres>) -> anyhow::Result<i32> {
+        let row = sqlx::query!(
+            r#"INSERT INTO todo (task, started, completed) VALUES ($1, $2, $3) RETURNING id"#,
+            self.task,
+            self.started,
+            self.completed
+        )
+        .fetch_one(pool)
+        .await?;
+
+        Ok(row.id)
+    }
 }
 
 use sqlx::postgres::PgPoolOptions;
 
 use std::env;
+use sqlx::{Pool, Postgres};
 
 #[async_std::main]
 async fn main() -> Result<(), sqlx::Error> {
-    let url = env::var("TODO_POSTGRESQL_URL").unwrap();
+    let url = env::var("DATABASE_URL").unwrap();
     let pool = PgPoolOptions::new()
         .max_connections(3)
         .connect(url.as_str())
         .await?;
-
     println!("pool: {:?}", pool);
-    println!("todo: {:?}, ", Todo::new(1, "wash car"));
+
+    let mut todo = Todo::new(1, "wash car");
+    println!("todo: {:?}, ", todo);
+
+    let returning_id = Todo::insert(&todo, &pool).await;
+    todo.id = returning_id.unwrap();
 
     Ok(())
 }
