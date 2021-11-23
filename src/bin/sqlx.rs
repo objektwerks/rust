@@ -93,5 +93,8 @@ async fn main() -> Result<(), sqlx::Error> {
     let deleted = Todo::delete( &todo, &pool ).await.unwrap();
     println!("deleted {} todo: {:?}", deleted, todo);
 
+    // select
+    println!("Is todo table empty? {}", Todo::select( &pool ).await.unwrap().is_empty());
+
     Ok(())
 }
