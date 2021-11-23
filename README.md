@@ -13,11 +13,11 @@ Rust
 10. sqlx
 11. tokio
 12. log, log4rs
->See: crates.io for these and more dependencies.
+>See **crates.io** for details.
 
 Install
 -------
->Install with step 1 and validate with steps 2 - 4.
+>Install Rust with step 1 and validate with steps 2 - 4.
 1. curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 2. rustup --version
 3. rustc --version
