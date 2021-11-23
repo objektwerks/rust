@@ -65,7 +65,9 @@ Doc
 
 Postgresql
 ----------
-* **Url:** "postgresql://localhost:5432/todo?user=computer_name&password='"
+>**Env**s
+1. **Url:** "postgresql://localhost:5432/todo?user=computer_name&password='"
+2. set env variable **DATABASE_URL** to url in step 1
 >**Create**
 1. psql postgres
 2. CREATE DATABASE todo OWNER [computer name];
