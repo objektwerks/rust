@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod recursion {
     #[test]
-    fn recursion() {
+    fn factorial() {
         fn factorial(n: u32, acc: u32) -> u32 {
             if n == 1 {
                 return acc;
