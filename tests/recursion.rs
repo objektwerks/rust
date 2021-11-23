@@ -38,4 +38,20 @@ mod recursion {
         let ns = vec![1, 2, 3];
         assert_eq!( sum(ns, 0), 6 );
     }
+
+    #[test]
+    fn product() {
+        fn product(mut ns: Vec<i32>, acc: i32) -> i32 {
+            match ns {
+                _ if ns.is_empty() => acc,
+                _ => {
+                    let head = ns.pop().unwrap();
+                    let tail = ns;
+                    product(tail, acc * head)
+                },
+            }
+        }
+        let ns = vec![1, 2, 3];
+        assert_eq!( product(ns, 1), 6 );
+    }
 }
