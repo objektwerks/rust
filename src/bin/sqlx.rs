@@ -47,10 +47,9 @@ async fn main() -> Result<(), sqlx::Error> {
     println!("pool: {:?}", pool);
 
     let mut todo = Todo::new(1, "wash car");
+    let future_id = Todo::insert(&todo, &pool).await;
+    todo.id = future_id.unwrap();
     println!("todo: {:?}, ", todo);
-
-    let returning_id = Todo::insert(&todo, &pool).await;
-    todo.id = returning_id.unwrap();
 
     Ok(())
 }
