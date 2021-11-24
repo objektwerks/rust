@@ -1,21 +1,22 @@
 use actix::prelude::*;
 
-struct PingActor {
+struct CountActor {
     count: usize,
 }
 
-impl Actor for PingActor {
+impl Actor for CountActor {
     type Context = Context<Self>;
 }
 
 #[derive(Message)]
 #[rtype(result = "usize")]
-struct Ping(usize);
+struct Count(usize);
 
-impl Handler<Ping> for PingActor {
+impl Handler<Count> for CountActor {
     type Result = usize;
 
-    fn handle(&mut self, message: Ping, _ctx: &mut Context<Self>) -> Self::Result {
+    fn handle(&mut self, message: Count,
+              _ctx: &mut Context<Self>) -> Self::Result {
         self.count += message.0;
         self.count
     }
@@ -23,8 +24,8 @@ impl Handler<Ping> for PingActor {
 
 #[actix_rt::main]
 async fn main() {
-    let ping_actor_address = PingActor { count: 10 }.start();
-    let ping_actor_response = ping_actor_address.send( Ping(10) ).await;
-    println!("ping actor response is: {}", ping_actor_response.unwrap());
+    let count_actor_address = CountActor { count: 0 }.start();
+    let count_actor_response = count_actor_address.send( Count(1) ).await;
+    println!("count actor response is: {}", count_actor_response.unwrap());
     System::current().stop();
 }
