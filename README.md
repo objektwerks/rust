@@ -1,18 +1,19 @@
 Rust
 ----
 >Rust feature tests, to include:
-1. actix-web
-2. chrono
-3. futures
-4. hyper
-5. rocket
-6. tide
-7. reqwest
-8. rusqlite
-9. serde, serde_json
-10. sqlx
-11. tokio
-12. log, log4rs
+1. actix
+2. actix-web
+3. chrono
+4. futures
+5. hyper
+6. rocket
+7. tide
+8. reqwest
+9. rusqlite
+10. serde, serde_json
+11. sqlx
+12. tokio
+13. log, log4rs
 >See **crates.io** for details.
 
 Install
@@ -57,7 +58,8 @@ Run
 7. cargo run --bin rusqlite
 8. cargo run --bin sqlx
 9. cargo run --bin logger
-10. cargo run --bin app
+10. cargo run --bin actors
+11. cargo run --bin app
 
 Doc
 ---
