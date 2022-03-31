@@ -11,7 +11,7 @@ actix-web = "3.3.3"
 anyhow = "1.0.56"
 chrono = "0.4.19"
 futures = "0.3.21"
-hyper = { version = "0.14.17", features = ["full"] }
+hyper = { version = "0.14.18", features = ["full"] }
 tide = "0.16.0"
 async-std = { version = "1.10.0", features = ["attributes", "tokio1"] }
 reqwest = { version = "0.11.9", features = ["blocking"] }
