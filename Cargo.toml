@@ -14,7 +14,7 @@ futures = "0.3.21"
 hyper = { version = "0.14.18", features = ["full"] }
 tide = "0.16.0"
 async-std = { version = "1.11.0", features = ["attributes", "tokio1"] }
-reqwest = { version = "0.11.9", features = ["blocking"] }
+reqwest = { version = "0.11.10", features = ["blocking"] }
 rocket = "0.5.0-rc.1"
 rusqlite = "0.26.3"
 serde = { version = "1.0.136", features = ["derive"] }
