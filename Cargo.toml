@@ -11,7 +11,7 @@ actix-web = "4.1.0"
 anyhow = "1.0.62"
 async-std = { version = "1.12.0", features = ["attributes", "tokio1"] }
 chrono = "0.4.22"
-futures = "0.3.21"
+futures = "0.3.23"
 hyper = { version = "0.14.20", features = ["full"] }
 log = "0.4.17"
 log4rs = "1.1.1"
