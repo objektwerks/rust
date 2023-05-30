@@ -13,7 +13,7 @@ async-std = { version = "1.12.0", features = ["attributes", "tokio1"] }
 chrono = "0.4.25"
 futures = "0.3.28"
 hyper = { version = "0.14.26", features = ["full"] }
-log = "0.4.17"
+log = "0.4.18"
 log4rs = "1.2.0"
 reqwest = { version = "0.11.17", features = ["blocking"] }
 rocket = "0.5.0-rc.3"
