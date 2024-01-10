@@ -15,7 +15,7 @@ futures = "0.3.29"
 hyper = { version = "0.14.27", features = ["full"] }
 log = "0.4.20"
 log4rs = "1.2.0"
-reqwest = { version = "0.11.22", features = ["blocking"] }
+reqwest = { version = "0.11.23", features = ["blocking"] }
 rocket = "0.5.0"
 rusqlite = "0.29.0"
 serde = { version = "1.0.195", features = ["derive"] }
