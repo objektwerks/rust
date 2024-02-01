@@ -10,7 +10,7 @@ actix-rt = "2.9.0"
 actix-web = "4.4.1"
 anyhow = "1.0.79"
 async-std = { version = "1.12.0", features = ["attributes", "tokio1"] }
-chrono = "0.4.31"
+chrono = "0.4.33"
 futures = "0.3.30"
 hyper = { version = "0.14.28", features = ["full"] }
 log = "0.4.20"
