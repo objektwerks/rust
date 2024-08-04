@@ -19,14 +19,14 @@ reqwest = { version = "0.11.27", features = ["blocking"] }
 rocket = "0.5.1"
 rusqlite = "0.29.0"
 serde = { version = "1.0.204", features = ["derive"] }
-serde_json = "1.0.120"
+serde_json = "1.0.122"
 sqlx = { version = "0.7.2", features = [
   "runtime-tokio",
   "tls-native-tls",
   "postgres",
 ] }
 tide = "0.16.0"
-tokio = { version = "1.38.0", features = ["full"] }
+tokio = { version = "1.39.2", features = ["full"] }
 
 [profile.dev]
 opt-level = 0
