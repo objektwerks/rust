@@ -49,6 +49,7 @@ Release
 
 Run
 ---
+>**Note:** sqlx shows 8 sql errors; yet the sqlx app works just fine! :)
 1. cargo run --bin actixweb  ( curl http://localhost:7777/now )
 2. cargo run --bin hyper     ( curl http://localhost:7878/now )
 3. cargo run --bin hyperx    ( curl http://localhost:7979/now )
