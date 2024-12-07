@@ -16,6 +16,10 @@ Rust
 13. log, log4rs
 >See **crates.io** for details.
 
+Warning
+-------
+>sqlx can't find and load /target/debug/deps/libsqlx_macros-d6228d6bb7b752f4.dylib So sqlx.rs contains basic errors!
+
 Install
 -------
 >Install Rust with step 1 and validate with steps 2 - 4.
