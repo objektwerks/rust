@@ -3,7 +3,7 @@ CREATE SCHEMA PUBLIC;
 
 CREATE TABLE todo (
   id SERIAL PRIMARY KEY,
-  task VARCHAR NOT NULL,
-  started VARCHAR NOT NULL,
-  completed VARCHAR NOT NULL
+  task TEXT NOT NULL,
+  started TEXT NOT NULL,
+  completed TEXT NOT NULL
 );
