@@ -18,7 +18,7 @@ Rust
 
 Warning
 -------
->sqlx can't find and load /target/debug/deps/libsqlx_macros-d6228d6bb7b752f4.dylib So sqlx.rs contains basic errors!
+>sqlx can't find started and completed columns in ddl.sql.
 
 Install
 -------
