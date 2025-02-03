@@ -2,14 +2,14 @@ use chrono::Local;
 
 #[derive(Debug)]
 struct Todo {
-    id: i32,
+    id: i64,
     task: String,
     started: String,
     completed: String,
 }
 
 impl Todo {
-    fn new(id: i32, task: &str) -> Todo {
+    fn new(id: i64, task: &str) -> Todo {
         Todo {
             id,
             task: task.to_string(),
@@ -17,7 +17,7 @@ impl Todo {
             completed: "".to_string(),
         }
     }
-    async fn insert(&self, pool: &Pool<Postgres>) -> anyhow::Result<i32> {
+    async fn insert(&self, pool: &Pool<Postgres>) -> anyhow::Result<i64> {
         let row = sqlx::query!(
             r#"INSERT INTO todo (task, started, completed) VALUES ($1, $2, $3) RETURNING id"#,
             self.task,
