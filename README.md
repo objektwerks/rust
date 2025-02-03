@@ -18,7 +18,7 @@ Rust
 
 Warning
 -------
->sqlx can't find started and completed columns in ddl.sql.
+>sqlx can't find *started* and *completed* columns in ddl.sql.
 
 Install
 -------
