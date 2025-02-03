@@ -25,7 +25,7 @@ sqlx = { version = "0.8.3", features = [
   "postgres",
 ] }
 tide = "0.16.0"
-tokio = { version = "1.42.0", features = ["full"] }
+tokio = { version = "1.43.0", features = ["full"] }
 
 [profile.dev]
 opt-level = 0
