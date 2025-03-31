@@ -9,7 +9,7 @@ actix = "0.13.5"
 actix-rt = "2.10.0"
 actix-web = "4.10.2"
 anyhow = "1.0.97"
-async-std = { version = "1.13.0", features = ["attributes", "tokio1"] }
+async-std = { version = "1.13.1", features = ["attributes", "tokio1"] }
 chrono = "0.4.39"
 futures = "0.3.31"
 hyper = { version = "0.14.32", features = ["full"] }
