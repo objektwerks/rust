@@ -8,7 +8,7 @@ edition = "2021"
 actix = "0.13.5"
 actix-rt = "2.11.0"
 actix-web = "4.11.0"
-anyhow = "1.0.98"
+anyhow = "1.0.99"
 async-std = { version = "1.13.1", features = ["attributes", "tokio1"] }
 chrono = "0.4.41"
 futures = "0.3.31"
