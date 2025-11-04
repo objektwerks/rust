@@ -16,10 +16,6 @@ Rust
 13. log, log4rs
 >See **crates.io** for details.
 
-Warning
--------
->sqlx macros can't find **started** and **completed** columns in ddl.sql.
-
 Install
 -------
 >Install Rust with step 1 and validate with steps 2 - 4.
