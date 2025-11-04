@@ -2,14 +2,14 @@ use chrono::Local;
 
 #[derive(Debug)]
 struct Todo {
-    id: i64,
+    id: i32,
     task: String,
     started: String,
     completed: String,
 }
 
 impl Todo {
-    fn new(id: i64, task: &str) -> Todo {
+    fn new(id: i32, task: &str) -> Todo {
         Todo {
             id,
             task: task.to_string(),
