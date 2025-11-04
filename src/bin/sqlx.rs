@@ -17,7 +17,7 @@ impl Todo {
             completed: "".to_string(),
         }
     }
-    async fn insert(&self, pool: &Pool<Postgres>) -> anyhow::Result<i64> {
+    async fn insert(&self, pool: &Pool<Postgres>) -> anyhow::Result<i32> {
         let row = sqlx::query!(
             r#"INSERT INTO todo (task, started, completed) VALUES ($1, $2, $3) RETURNING id"#,
             self.task,
